@@ -37,7 +37,8 @@ mixin _$HomeState {
   int get finalAdultes => throw _privateConstructorUsedError;
   int get finalEnfants => throw _privateConstructorUsedError;
   DateTime? get startDate => throw _privateConstructorUsedError;
-  DateTime? get endDate => throw _privateConstructorUsedError;
+  DateTime? get endDate =>
+      throw _privateConstructorUsedError; // @Default([]) List<FavoriteListModel> favoriteLists,
   EventModel? get selectedEvent => throw _privateConstructorUsedError;
   List<EventModel> get searchedCompetitions =>
       throw _privateConstructorUsedError;
@@ -493,6 +494,7 @@ class _$HomeStateImpl implements _HomeState {
   final DateTime? startDate;
   @override
   final DateTime? endDate;
+// @Default([]) List<FavoriteListModel> favoriteLists,
   @override
   final EventModel? selectedEvent;
   final List<EventModel> _searchedCompetitions;
@@ -669,7 +671,7 @@ abstract class _HomeState implements HomeState {
   @override
   DateTime? get startDate;
   @override
-  DateTime? get endDate;
+  DateTime? get endDate; // @Default([]) List<FavoriteListModel> favoriteLists,
   @override
   EventModel? get selectedEvent;
   @override

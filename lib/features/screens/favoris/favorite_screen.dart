@@ -90,7 +90,12 @@ class _FavoriteScreenState extends ConsumerState<FavoriteScreen> {
 
   // 🟣 GRID EXACT FIGMA
   Widget _buildFavoritesGrid(List<EventModel> events) {
-    return Padding(
+    return GestureDetector(
+      onTap: () => 
+      ref
+              .read(homeRepositoryProvider.notifier)
+              .setSelectedEvent(events.first, false),
+  child:   Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       child: GridView.builder(
         itemCount: events.length,
@@ -108,6 +113,7 @@ class _FavoriteScreenState extends ConsumerState<FavoriteScreen> {
           return MiniFavoriteCard(event: events[index]);
         },
       ),
+  )
     );
   }
 }

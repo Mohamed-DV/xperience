@@ -1,9 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:spots_xplorer_app/core/models/Favorites_List_model.dart';
 import 'package:spots_xplorer_app/core/models/activites_model.dart';
 import 'package:spots_xplorer_app/core/models/event_model.dart';
 
 part 'home_state.freezed.dart';
-part 'home_state.g.dart';
+// part 'home_state.g.dart';
 
 @freezed
 class HomeState with _$HomeState {
@@ -24,6 +25,7 @@ class HomeState with _$HomeState {
     @Default(0) int finalEnfants,
     DateTime? startDate,
     DateTime? endDate,
+    // @Default([]) List<FavoriteListModel> favoriteLists,
     EventModel? selectedEvent,
     @Default([]) List<EventModel> searchedCompetitions,
     @Default([]) List<EventModel> searchedActivities,
