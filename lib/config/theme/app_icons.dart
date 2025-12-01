@@ -1,0 +1,58 @@
+import 'package:flutter/material.dart';
+import 'package:remixicon/remixicon.dart';
+
+class AppIcons {
+  static const IconData notificationLine = Remix.notification_3_line;
+  static const IconData searchLine = Remix.search_line;
+  static const IconData locationFill = Remix.map_pin_2_fill;
+  static const IconData locationLine = Remix.map_pin_2_line;
+  static const IconData starFill = Remix.star_fill;
+    static const IconData close_line = Remix.close_line;
+
+  static const IconData closeline = Remix.close_large_line;
+  static const IconData arrowDownSLine = Remix.arrow_down_s_line;
+  static const IconData arrowLeftSmLine = Remix.arrow_left_s_line;
+  static const IconData expandUp = Remix.expand_up_down_fill;
+  static const IconData expandDown = Remix.contract_up_down_fill;
+  static const IconData arrowLeft = Remix.arrow_left_line;
+  static const IconData arrowRight = Remix.arrow_right_line;
+  static const IconData arrowRightSmLine = Remix.arrow_right_s_line;
+  static const IconData historyLine = Remix.history_line;
+  static const IconData copyLine = Remix.file_copy_line;
+  static const IconData calendarLine = Remix.calendar_schedule_line;
+  static const IconData alarmWarningLine = Remix.alarm_warning_line;
+  static const IconData expandDiagonalLine = Remix.expand_diagonal_line;
+  static const IconData check_line = Remix.check_line;
+  static const IconData phone_line = Remix.phone_line;
+  static const IconData more_fill = Remix.more_fill;
+  static const IconData send_fill = Remix.send_plane_2_fill;
+  static const IconData attachmentLine = Remix.attachment_line;
+  static const IconData profileLine = Remix.user_3_line;
+  static const IconData fingerPrintLine = Remix.fingerprint_line;
+  static const IconData awardLine = Remix.award_line;
+  static const IconData settingsLine = Remix.settings_2_line;
+  static const IconData questionLine = Remix.question_line;
+  static const IconData fileListLine = Remix.file_list_3_line;
+  static const IconData logoutLine = Remix.logout_box_line;
+  static const IconData megaphoneLine = Remix.megaphone_line;
+  static const IconData handCoinsLine = Remix.hand_coin_line;
+  static const IconData globalLine = Remix.global_line;
+  static const IconData editFill = Remix.edit_2_fill;
+  static const IconData editLine = Remix.edit_box_line;
+  static const IconData imageEditLine = Remix.image_edit_line;
+  static const IconData emailLine = Remix.mail_line;
+  static const IconData emailFill = Remix.mail_fill;
+  static const IconData lockLine = Remix.lock_line;
+  static const IconData eyeFill = Remix.eye_fill;
+  static const IconData eyeLine = Remix.eye_line;
+  static const IconData eyeCloseFill = Remix.eye_off_fill;
+  static const IconData linkedInFill = Remix.linkedin_box_fill;
+  static const IconData facebookFill = Remix.facebook_fill;
+  static const IconData instagramFill = Remix.instagram_fill;
+  static const IconData addLine = Remix.add_line;
+  static const IconData shareLine = Remix.share_2_line;
+  static const IconData likeLine = Remix.thumb_up_line;
+  static const IconData checkLine = Remix.check_line;
+  static const IconData pendingLine = Remix.progress_1_line;
+  static const IconData timeline = Remix.time_line;
+}

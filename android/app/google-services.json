@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1080683538914",
+    "project_id": "spotsxplorer",
+    "storage_bucket": "spotsxplorer.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1080683538914:android:f9a9d8c77b432ae62831bb",
+        "android_client_info": {
+          "package_name": "io.spots.xplorer.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD192wrzkiP8l6-SQVQdqekFNT7hTfZyhU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

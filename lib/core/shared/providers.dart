@@ -1,0 +1,20 @@
+import 'package:dio/dio.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:spots_xplorer_app/core/services/firebase_services.dart';
+
+
+final flutterSecureStorageProvider = Provider<FlutterSecureStorage>(
+  (ref) => const FlutterSecureStorage(),
+);
+
+
+/// this is the dio provider that we created in the [dio_provider.dart] file.
+final dioProvider = Provider<Dio>(
+  (ref) => Dio(),
+);
+
+/// Firebase Push Notification Service Provider
+final pushNotificationServiceProvider = Provider<PushNotificationService>(
+  (ref) => PushNotificationService(),
+);
