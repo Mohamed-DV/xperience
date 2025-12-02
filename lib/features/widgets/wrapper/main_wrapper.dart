@@ -40,14 +40,12 @@ class _MainWrapperState extends ConsumerState<MainWrapper> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true, 
+      extendBody: true,
       backgroundColor: Colors.transparent,
-
       body: widget.navShell,
-
       bottomNavigationBar: SafeArea(
         child: Container(
-          height: 60,
+          height: 90,
           margin: const EdgeInsets.only(bottom: 0), // بقا لتحت مزيان
           child: _buildBottomNavBar(),
         ),
@@ -55,112 +53,223 @@ class _MainWrapperState extends ConsumerState<MainWrapper> {
     );
   }
 
-  /// BOTTOM NAVBAR NORMAL (NOT FLOATING)
   Widget _buildBottomNavBar() {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(0), // عادي بلا round
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.40), // شفاف شوية
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.08),
-                blurRadius: 10,
-                offset: const Offset(0, -2),
-              )
-            ],
-          ),
-          child: Row(
-            children: [
-              _navItem(
-                iconFill: 'assets/icons/search_fill.png',
-                iconLine: 'assets/icons/search_line.png',
-                label: 'Parcourir',
-                index: 0,
-              ),
-              _navItem(
-                iconFill: 'assets/icons/running_fill.png',
-                iconLine: 'assets/icons/running_line.png',
-                label: 'À refaire',
-                index: 1,
-              ),
-              _navItem(
-                iconFill: 'assets/icons/ticket_fill.png',
-                iconLine: 'assets/icons/ticket_line.png',
-                label: 'Réservations',
-                index: 2,
-              ),
-              _navItem(
-                iconFill: 'assets/icons/location_heart_fill.png',
-                iconLine: 'assets/icons/location_heart_line.png',
-                label: 'Mes Favoris',
-                index: 3,
-              ),
-              _navItem(
-                iconFill: 'assets/icons/profile_fill.png',
-                iconLine: 'assets/icons/profile_line.png',
-                label: 'Mon Profil',
-                index: 4,
-              ),
-            ],
+    return Padding(
+      padding:
+          const EdgeInsets.fromLTRB(16, 0, 16, 20), // ← padding bottom (Figma)
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(40), // ← pilule
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.55),
+              borderRadius: BorderRadius.circular(40),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.08),
+                  blurRadius: 25,
+                  offset: const Offset(0, 8),
+                )
+              ],
+            ),
+            height: 80,
+            child: Row(
+              children: [
+                _navItem(
+                    iconFill: 'assets/icons/search_fill.png',
+                    iconLine: 'assets/icons/search_line.png',
+                    label: 'Parcourir',
+                    index: 0),
+                _navItem(
+                    iconFill: 'assets/icons/running_fill.png',
+                    iconLine: 'assets/icons/running_line.png',
+                    label: 'À refaire',
+                    index: 1),
+                _navItem(
+                    iconFill: 'assets/icons/ticket_fill.png',
+                    iconLine: 'assets/icons/ticket_line.png',
+                    label: 'Réservations',
+                    index: 2),
+                _navItem(
+                    iconFill: 'assets/icons/location_heart_fill.png',
+                    iconLine: 'assets/icons/location_heart_line.png',
+                    label: 'Mes Favoris',
+                    index: 3),
+                _navItem(
+                    iconFill: 'assets/icons/profile_fill.png',
+                    iconLine: 'assets/icons/profile_line.png',
+                    label: 'Mon Profil',
+                    index: 4),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  /// NAV ITEM
+  // /// BOTTOM NAVBAR NORMAL (NOT FLOATING)
+  // Widget _buildBottomNavBar() {
+  //   return ClipRRect(
+  //     borderRadius: BorderRadius.circular(0), // عادي بلا round
+  //     child: BackdropFilter(
+  //       filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+  //       child: Container(
+  //         decoration: BoxDecoration(
+  //           color: Colors.white.withOpacity(0.40), // شفاف شوية
+  //           boxShadow: [
+  //             BoxShadow(
+  //               color: Colors.black.withOpacity(0.08),
+  //               blurRadius: 10,
+  //               offset: const Offset(0, -2),
+  //             )
+  //           ],
+  //         ),
+  //         child: Row(
+  //           children: [
+  //             _navItem(
+  //               iconFill: 'assets/icons/search_fill.png',
+  //               iconLine: 'assets/icons/search_line.png',
+  //               label: 'Parcourir',
+  //               index: 0,
+  //             ),
+  //             _navItem(
+  //               iconFill: 'assets/icons/running_fill.png',
+  //               iconLine: 'assets/icons/running_line.png',
+  //               label: 'À refaire',
+  //               index: 1,
+  //             ),
+  //             _navItem(
+  //               iconFill: 'assets/icons/ticket_fill.png',
+  //               iconLine: 'assets/icons/ticket_line.png',
+  //               label: 'Réservations',
+  //               index: 2,
+  //             ),
+  //             _navItem(
+  //               iconFill: 'assets/icons/location_heart_fill.png',
+  //               iconLine: 'assets/icons/location_heart_line.png',
+  //               label: 'Mes Favoris',
+  //               index: 3,
+  //             ),
+  //             _navItem(
+  //               iconFill: 'assets/icons/profile_fill.png',
+  //               iconLine: 'assets/icons/profile_line.png',
+  //               label: 'Mon Profil',
+  //               index: 4,
+  //             ),
+  //           ],
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
   Widget _navItem({
     required String iconFill,
     required String iconLine,
     required String label,
     required int index,
   }) {
+    final bool isActive = _selectedIndex == index;
+
     return Expanded(
       child: GestureDetector(
-    onTap: () {
-  setState(() => _selectedIndex = index);
+        onTap: () {
+          setState(() => _selectedIndex = index);
 
-  // --------------------------------------------------
-  // 🔥 Remarque 2: User clicks "Parcourir" → reset home
-  // --------------------------------------------------
-  if (index == 0) {
-    // Reset Home Type → HomeProvidersType.initial
-    ref.read(homeTypeState.notifier).state = HomeProvidersType.initial;
+          if (index == 0) {
+            ref.read(homeTypeState.notifier).state = HomeProvidersType.initial;
+            ref.read(homeRepositoryProvider.notifier).resetSearch();
+          }
 
-    // Reset all search fields
-    ref.read(homeRepositoryProvider.notifier).resetSearch();
-
-    print("HOME RESET DONE — RETURN TO MAIN HOME");
-  }
-
-  _goToScreen(index);
-},
-
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              _selectedIndex == index ? iconFill : iconLine,
-              width: 24,
-              height: 24,
-            ),
-            const SizedBox(height: Spacing.xxs),
-            Text(
-              label,
-              style: TextStyle(
-                color: _selectedIndex == index
-                    ? AppColors.primary
-                    : AppColors.blackSecondary,
-                fontSize: 10,
-                fontWeight: FontWeight.w500,
+          _goToScreen(index);
+        },
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+          padding:  EdgeInsets.symmetric(vertical: 4),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AnimatedScale(
+                duration: const Duration(milliseconds: 300),
+                scale: isActive ? 1.15 : 1.0,
+                child: Image.asset(
+                  isActive ? iconFill : iconLine,
+                  width: 24,
+                  height: 24,
+                ),
               ),
-            ),
-          ],
+              const SizedBox(height: 4),
+              AnimatedDefaultTextStyle(
+                duration: const Duration(milliseconds: 350),
+                style: TextStyle(
+                  color:
+                      isActive ? AppColors.primary : AppColors.blackSecondary,
+                  fontSize: 10,
+                  fontWeight: FontWeight.w600,
+                ),
+                child: Text(label),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
+  /// NAV ITEM
+//   Widget _navItem({
+//     required String iconFill,
+//     required String iconLine,
+//     required String label,
+//     required int index,
+//   }) {
+//     return Expanded(
+//       child: GestureDetector(
+//     onTap: () {
+//   setState(() => _selectedIndex = index);
+
+//   // --------------------------------------------------
+//   // 🔥 Remarque 2: User clicks "Parcourir" → reset home
+//   // --------------------------------------------------
+//   if (index == 0) {
+//     // Reset Home Type → HomeProvidersType.initial
+//     ref.read(homeTypeState.notifier).state = HomeProvidersType.initial;
+
+//     // Reset all search fields
+//     ref.read(homeRepositoryProvider.notifier).resetSearch();
+
+//     print("HOME RESET DONE — RETURN TO MAIN HOME");
+//   }
+
+//   _goToScreen(index);
+// },
+
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             Image.asset(
+//               _selectedIndex == index ? iconFill : iconLine,
+//               width: 24,
+//               height: 24,
+//             ),
+//             const SizedBox(height: Spacing.xxs),
+//             Text(
+//               label,
+//               style: TextStyle(
+//                 color: _selectedIndex == index
+//                     ? AppColors.primary
+//                     : AppColors.blackSecondary,
+//                 fontSize: 10,
+//                 fontWeight: FontWeight.w500,
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
