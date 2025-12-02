@@ -20,6 +20,7 @@ HomeState _$HomeStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$HomeState {
+  List<Wishlist> get wishlists => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   List<ActivitesModel> get selectedCategories =>
       throw _privateConstructorUsedError;
@@ -60,7 +61,8 @@ abstract class $HomeStateCopyWith<$Res> {
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
   $Res call(
-      {bool isLoading,
+      {List<Wishlist> wishlists,
+      bool isLoading,
       List<ActivitesModel> selectedCategories,
       List<ActivitesModel> unSelectedCategories,
       List<EventModel> competitions,
@@ -99,6 +101,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? wishlists = null,
     Object? isLoading = null,
     Object? selectedCategories = null,
     Object? unSelectedCategories = null,
@@ -121,6 +124,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? searchedEvents = null,
   }) {
     return _then(_value.copyWith(
+      wishlists: null == wishlists
+          ? _value.wishlists
+          : wishlists // ignore: cast_nullable_to_non_nullable
+              as List<Wishlist>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -228,7 +235,8 @@ abstract class _$$HomeStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool isLoading,
+      {List<Wishlist> wishlists,
+      bool isLoading,
       List<ActivitesModel> selectedCategories,
       List<ActivitesModel> unSelectedCategories,
       List<EventModel> competitions,
@@ -266,6 +274,7 @@ class __$$HomeStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? wishlists = null,
     Object? isLoading = null,
     Object? selectedCategories = null,
     Object? unSelectedCategories = null,
@@ -288,6 +297,10 @@ class __$$HomeStateImplCopyWithImpl<$Res>
     Object? searchedEvents = null,
   }) {
     return _then(_$HomeStateImpl(
+      wishlists: null == wishlists
+          ? _value._wishlists
+          : wishlists // ignore: cast_nullable_to_non_nullable
+              as List<Wishlist>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -376,7 +389,8 @@ class __$$HomeStateImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$HomeStateImpl implements _HomeState {
   const _$HomeStateImpl(
-      {this.isLoading = false,
+      {final List<Wishlist> wishlists = const [],
+      this.isLoading = false,
       final List<ActivitesModel> selectedCategories = const [],
       final List<ActivitesModel> unSelectedCategories = const [],
       final List<EventModel> competitions = const [],
@@ -396,7 +410,8 @@ class _$HomeStateImpl implements _HomeState {
       final List<EventModel> searchedCompetitions = const [],
       final List<EventModel> searchedActivities = const [],
       final List<EventModel> searchedEvents = const []})
-      : _selectedCategories = selectedCategories,
+      : _wishlists = wishlists,
+        _selectedCategories = selectedCategories,
         _unSelectedCategories = unSelectedCategories,
         _competitions = competitions,
         _activities = activities,
@@ -408,6 +423,15 @@ class _$HomeStateImpl implements _HomeState {
 
   factory _$HomeStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$HomeStateImplFromJson(json);
+
+  final List<Wishlist> _wishlists;
+  @override
+  @JsonKey()
+  List<Wishlist> get wishlists {
+    if (_wishlists is EqualUnmodifiableListView) return _wishlists;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_wishlists);
+  }
 
   @override
   @JsonKey()
@@ -526,7 +550,7 @@ class _$HomeStateImpl implements _HomeState {
 
   @override
   String toString() {
-    return 'HomeState(isLoading: $isLoading, selectedCategories: $selectedCategories, unSelectedCategories: $unSelectedCategories, competitions: $competitions, activities: $activities, events: $events, favoris: $favoris, destination: $destination, periode: $periode, voyageurs: $voyageurs, adultes: $adultes, enfants: $enfants, finalAdultes: $finalAdultes, finalEnfants: $finalEnfants, startDate: $startDate, endDate: $endDate, selectedEvent: $selectedEvent, searchedCompetitions: $searchedCompetitions, searchedActivities: $searchedActivities, searchedEvents: $searchedEvents)';
+    return 'HomeState(wishlists: $wishlists, isLoading: $isLoading, selectedCategories: $selectedCategories, unSelectedCategories: $unSelectedCategories, competitions: $competitions, activities: $activities, events: $events, favoris: $favoris, destination: $destination, periode: $periode, voyageurs: $voyageurs, adultes: $adultes, enfants: $enfants, finalAdultes: $finalAdultes, finalEnfants: $finalEnfants, startDate: $startDate, endDate: $endDate, selectedEvent: $selectedEvent, searchedCompetitions: $searchedCompetitions, searchedActivities: $searchedActivities, searchedEvents: $searchedEvents)';
   }
 
   @override
@@ -534,6 +558,8 @@ class _$HomeStateImpl implements _HomeState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HomeStateImpl &&
+            const DeepCollectionEquality()
+                .equals(other._wishlists, _wishlists) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             const DeepCollectionEquality()
@@ -574,6 +600,7 @@ class _$HomeStateImpl implements _HomeState {
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
+        const DeepCollectionEquality().hash(_wishlists),
         isLoading,
         const DeepCollectionEquality().hash(_selectedCategories),
         const DeepCollectionEquality().hash(_unSelectedCategories),
@@ -614,7 +641,8 @@ class _$HomeStateImpl implements _HomeState {
 
 abstract class _HomeState implements HomeState {
   const factory _HomeState(
-      {final bool isLoading,
+      {final List<Wishlist> wishlists,
+      final bool isLoading,
       final List<ActivitesModel> selectedCategories,
       final List<ActivitesModel> unSelectedCategories,
       final List<EventModel> competitions,
@@ -638,6 +666,8 @@ abstract class _HomeState implements HomeState {
   factory _HomeState.fromJson(Map<String, dynamic> json) =
       _$HomeStateImpl.fromJson;
 
+  @override
+  List<Wishlist> get wishlists;
   @override
   bool get isLoading;
   @override

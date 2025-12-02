@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:spots_xplorer_app/core/models/activites_model.dart';
 import 'package:spots_xplorer_app/core/models/event_model.dart';
+import 'package:spots_xplorer_app/core/models/wishlist.dart';
 
 part 'home_state.freezed.dart';
 part 'home_state.g.dart';
@@ -8,6 +9,8 @@ part 'home_state.g.dart';
 @freezed
 class HomeState with _$HomeState {
   const factory HomeState({
+       @Default([]) List<Wishlist> wishlists,
+
     @Default(false) bool isLoading,
     @Default([]) List<ActivitesModel> selectedCategories,
     @Default([]) List<ActivitesModel> unSelectedCategories,

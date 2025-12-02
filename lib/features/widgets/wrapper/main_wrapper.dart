@@ -43,20 +43,20 @@ class _MainWrapperState extends ConsumerState<MainWrapper> {
       extendBody: true,
       backgroundColor: Colors.transparent,
       body: widget.navShell,
-      bottomNavigationBar: SafeArea(
-        child: Container(
-          height: 90,
-          margin: const EdgeInsets.only(bottom: 0), // بقا لتحت مزيان
-          child: _buildBottomNavBar(),
-        ),
-      ),
+     bottomNavigationBar: SafeArea(
+  child: _buildBottomNavBar(),
+),
+
     );
   }
 
   Widget _buildBottomNavBar() {
     return Padding(
+      
       padding:
-          const EdgeInsets.fromLTRB(16, 0, 16, 20), // ← padding bottom (Figma)
+          const EdgeInsets.fromLTRB(16, 0, 16, 20),
+           // ← padding bottom (Figma)
+           
       child: ClipRRect(
         borderRadius: BorderRadius.circular(40), // ← pilule
         child: BackdropFilter(
@@ -65,7 +65,7 @@ class _MainWrapperState extends ConsumerState<MainWrapper> {
             duration: const Duration(milliseconds: 300),
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.55),
+         color: Colors.white.withOpacity(0.3),
               borderRadius: BorderRadius.circular(40),
               boxShadow: [
                 BoxShadow(
@@ -195,7 +195,8 @@ class _MainWrapperState extends ConsumerState<MainWrapper> {
             children: [
               AnimatedScale(
                 duration: const Duration(milliseconds: 300),
-                scale: isActive ? 1.15 : 1.0,
+                scale: isActive ? 1.10 : 1.0,
+
                 child: Image.asset(
                   isActive ? iconFill : iconLine,
                   width: 24,

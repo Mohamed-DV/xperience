@@ -1,6 +1,7 @@
 import 'package:spots_xplorer_app/config/router/auth_guard.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:spots_xplorer_app/core/models/wishlist.dart';
 import 'package:spots_xplorer_app/core/utils/page_transitions.dart';
 import 'package:spots_xplorer_app/features/auth/presentation/adapt_screen.dart';
 import 'package:spots_xplorer_app/features/auth/presentation/forget_password.dart';
@@ -16,6 +17,7 @@ import 'package:spots_xplorer_app/features/reservation/presentation/sub_pages/re
 import 'package:spots_xplorer_app/features/screens/badge/badge_screen.dart';
 import 'package:spots_xplorer_app/features/screens/do_again/doagain_screen.dart';
 import 'package:spots_xplorer_app/features/screens/event_details_screen.dart';
+import 'package:spots_xplorer_app/features/screens/favoris/WishlistDetailsScreen.dart';
 import 'package:spots_xplorer_app/features/screens/favoris/favorite_screen.dart';
 import 'package:spots_xplorer_app/features/home/presentation/home_screen.dart';
 import 'package:spots_xplorer_app/features/screens/on_boarding/onboarding_screen.dart';
@@ -381,6 +383,18 @@ class GoRouterSetup {
               );
             },
           ),
+          GoRoute(
+  path: '/wishlist-details',
+  pageBuilder: (context, state) {
+    final list = state.extra as Wishlist;
+    return buildPageWithDefaultTransition(
+      context: context,
+      state: state,
+      child: WishlistDetailsScreen(list: list),
+    );
+  },
+),
+
           GoRoute(
             path: Routes.review,
             pageBuilder: (context, state) {

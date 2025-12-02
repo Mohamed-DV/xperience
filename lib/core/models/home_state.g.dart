@@ -8,6 +8,10 @@ part of 'home_state.dart';
 
 _$HomeStateImpl _$$HomeStateImplFromJson(Map<String, dynamic> json) =>
     _$HomeStateImpl(
+      wishlists: (json['wishlists'] as List<dynamic>?)
+              ?.map((e) => Wishlist.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       isLoading: json['isLoading'] as bool? ?? false,
       selectedCategories: (json['selectedCategories'] as List<dynamic>?)
               ?.map((e) => ActivitesModel.fromJson(e as Map<String, dynamic>))
@@ -65,6 +69,7 @@ _$HomeStateImpl _$$HomeStateImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$HomeStateImplToJson(_$HomeStateImpl instance) =>
     <String, dynamic>{
+      'wishlists': instance.wishlists,
       'isLoading': instance.isLoading,
       'selectedCategories': instance.selectedCategories,
       'unSelectedCategories': instance.unSelectedCategories,

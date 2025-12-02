@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -8,6 +9,7 @@ import 'package:spots_xplorer_app/config/router/app_router.dart';
 import 'package:spots_xplorer_app/core/models/activites_model.dart';
 import 'package:spots_xplorer_app/core/models/event_model.dart';
 import 'package:spots_xplorer_app/core/models/home_state.dart';
+import 'package:spots_xplorer_app/core/models/wishlist.dart';
 import 'package:spots_xplorer_app/core/services/login_repository.dart';
 import 'package:spots_xplorer_app/core/services/notification_repository.dart';
 import 'package:spots_xplorer_app/core/utils/api_routes.dart';
@@ -23,12 +25,105 @@ part 'home_repository.g.dart';
 @Riverpod(keepAlive: true)
 class HomeRepository extends _$HomeRepository {
   final _dio = Dio(BaseOptions(baseUrl: baseUrl));
+List<Wishlist> wishlists = [];
 
   @override
   HomeState build() {
     print('build Home');
+    loadWishlists();
     return const HomeState();
   }
+// ------------------------------------------------------
+// CREATE WISHLIST
+// ------------------------------------------------------
+Future<void> saveWishlists() async {
+  final prefs = await SharedPreferences.getInstance();
+
+  // Convert to List<Map>
+  final jsonList = state.wishlists.map((w) => w.toJson()).toList();
+
+  await prefs.setString("wishlists", jsonEncode(jsonList));
+
+  print("Wishlists saved successfully!");
+}
+Future<void> loadWishlists() async {
+  final prefs = await SharedPreferences.getInstance();
+
+  final jsonString = prefs.getString("wishlists");
+  if (jsonString == null) return;
+
+  final decoded = jsonDecode(jsonString) as List;
+
+  final lists = decoded.map((e) => Wishlist.fromJson(e)).toList();
+
+  state = state.copyWith(wishlists: lists);
+
+  print("Wishlists loaded: ${lists.length}");
+}
+
+void createWishlist(String name, EventModel event) {
+  final newList = Wishlist(
+    id: DateTime.now().millisecondsSinceEpoch.toString(),
+    name: name,
+    image: "assets/images/default_list.jpg",
+    events: [event],
+  );
+
+  final updated = [...state.wishlists, newList];
+
+  state = state.copyWith(wishlists: updated);
+
+  saveWishlists(); // 🔥 SAVE HERE
+}
+
+// ------------------------------------------------------
+// ADD EVENT TO EXISTING WISHLIST
+// ------------------------------------------------------
+void updateFavEvent(EventModel event) {
+  final updated = event.copyWith(isFav: true);
+
+  // Update selectedEvent
+  if (state.selectedEvent?.id == event.id) {
+    state = state.copyWith(selectedEvent: updated);
+  }
+
+  // Update events list
+  state = state.copyWith(
+    events: state.events.map((e) => e.id == event.id ? updated : e).toList(),
+    activities: state.activities.map((e) => e.id == event.id ? updated : e).toList(),
+    competitions: state.competitions.map((e) => e.id == event.id ? updated : e).toList(),
+  );
+}
+void removeFromAllLists(EventModel event) {
+  final updated = state.wishlists.map((list) {
+    final newEvents = list.events.where((e) => e.id != event.id).toList();
+    return list.copyWith(events: newEvents);
+  }).toList();
+
+  state = state.copyWith(wishlists: updated);
+
+  saveWishlists(); // 🔥 SAVE HERE
+}
+
+
+List<EventModel> _updateList(List<EventModel> list, EventModel updated) {
+  return list.map((e) => e.id == updated.id ? updated : e).toList();
+}
+
+void addEventToList(String listId, EventModel event) {
+  final updatedLists = state.wishlists.map((list) {
+    if (list.id == listId) {
+      final newEvents = [...list.events, event];
+      return list.copyWith(events: newEvents);
+    }
+    return list;
+  }).toList();
+
+  state = state.copyWith(wishlists: updatedLists);
+
+  saveWishlists(); // 🔥 SAVE HERE
+}
+
 
   void checkUserCompetition() async {
     print("checkUserCompetition()");
