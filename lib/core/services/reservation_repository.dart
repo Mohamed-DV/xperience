@@ -117,7 +117,10 @@ class ReservationRepository extends _$ReservationRepository {
         data: {
           "eventId": id,
           "type": type, // competition or activity
-          "reservationDate": reservationDate,
+          "reservationDate": DateTime.parse("${state.reservationDate.split('T')[0]} ${state.fromHour}")
+      .toUtc()
+      .toIso8601String(),
+
           "totalPrice": priceTotal,
           "fromHour": fromHour,
           "toHour": toHour,
@@ -223,7 +226,7 @@ class ReservationRepository extends _$ReservationRepository {
             (state.compition?.isReserved ?? false)) {
           getSelectedReservationById(
             state.selectedId.toString(),
-            selectedEvent.eventType,
+            selectedEvent.eventType ?? "",
           );
         }
       }
@@ -367,9 +370,9 @@ class ReservationRepository extends _$ReservationRepository {
               position: Alignment.topCenter,
               title: "avec succes",
             );
-        getReservation(selectedEvent.eventType, 'pending');
+        getReservation(selectedEvent.eventType ?? "", 'pending');
         getReservationById();
-        getSelectedReservationById(resId.toString(), selectedEvent.eventType);
+        getSelectedReservationById(resId.toString(), selectedEvent.eventType ?? "");
         return;
       }
     } on DioException catch (e) {

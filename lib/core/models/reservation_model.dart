@@ -8,15 +8,29 @@ part 'reservation_model.g.dart';
 class ReservationModel with _$ReservationModel {
   const factory ReservationModel({
     required int id,
-    required String reservationDate,
-    required String status,
-    String? title,
+
+    String? reservationDate,
+    String? status,
+
+    int? participantCount,
+
+    String? fromDate,
+    String? toDate,
+
     String? fromHour,
     String? toHour,
+
     String? totalPrice,
-    CompitionsModel? competition,
+    String? notes,
+    String? teamName,
+
+    String? createdAt,
+    String? updatedAt,
+
     ActivitysModel? activity,
+    CompitionsModel? competition,
     EventModel? event,
+
     bool? isCancelled,
     bool? isUpdated,
   }) = _ReservationModel;
@@ -25,13 +39,15 @@ class ReservationModel with _$ReservationModel {
       _$ReservationModelFromJson(json);
 }
 
+
+@freezed
 @freezed
 class CompetitionImageModel with _$CompetitionImageModel {
   const factory CompetitionImageModel({
     required int id,
-    required String image,
-    required String createdAt,
-    required String updatedAt,
+    String? image,
+    String? createdAt,
+    String? updatedAt,
     String? deletedAt,
   }) = _CompetitionImageModel;
 
@@ -39,47 +55,59 @@ class CompetitionImageModel with _$CompetitionImageModel {
       _$CompetitionImageModelFromJson(json);
 }
 
+
 @freezed
 class LocationModel with _$LocationModel {
   const factory LocationModel({
-    required String type,
-    required List<double> coordinates,
+    String? type,
+    List<double>? coordinates,
   }) = _LocationModel;
 
   factory LocationModel.fromJson(Map<String, dynamic> json) =>
       _$LocationModelFromJson(json);
 }
 
+
 @freezed
+
 class CompitionsModel with _$CompitionsModel {
   const factory CompitionsModel({
     required int id,
-    required String title,
-    required String discipline,
-    required String date,
-    required String time,
-    required String level,
-    required int distance,
-    required int participantNumber,
-    required String prerequisites,
-    required String meetDate,
-    required String meetAddress,
-    required int meetPostalcode,
-    required String meetCity,
-    required String meetCountry,
-    required String startDate,
-    required String eventType,
-    required String startAddress,
-    required LocationModel meetLocation,
-    required LocationModel startLocation,
-    required String description,
-    required String price,
-    required String email,
-    required String phone,
-    required String website,
-    required List<CompetitionImageModel> images,
-    required String createdAt,
-    required String updatedAt,
+
+    String? title,
+    String? discipline,
+    String? date,
+    String? time,
+    String? level,
+
+    int? distance,
+    int? participantNumber,
+
+    String? prerequisites,
+
+    String? meetDate,
+    String? meetAddress,
+    int? meetPostalcode,
+    String? meetCity,
+    String? meetCountry,
+
+    String? startDate,
+    String? eventType,
+    String? startAddress,
+
+    LocationModel? meetLocation,
+    LocationModel? startLocation,
+
+    String? description,
+    String? price,
+    String? email,
+    String? phone,
+    String? website,
+
+    List<CompetitionImageModel>? images,
+
+    String? createdAt,
+    String? updatedAt,
     String? deletedAt,
   }) = _CompitionsModel;
 
@@ -87,13 +115,15 @@ class CompitionsModel with _$CompitionsModel {
       _$CompitionsModelFromJson(json);
 }
 
+
+
 @freezed
 class ActivityImageModel with _$ActivityImageModel {
   const factory ActivityImageModel({
     required int id,
-    required String image,
-    required String createdAt,
-    required String updatedAt,
+    String? image,
+    String? createdAt,
+    String? updatedAt,
     String? deletedAt,
   }) = _ActivityImageModel;
 
@@ -101,46 +131,60 @@ class ActivityImageModel with _$ActivityImageModel {
       _$ActivityImageModelFromJson(json);
 }
 
+
+@freezed
 @freezed
 class OpeningHourModel with _$OpeningHourModel {
   const factory OpeningHourModel({
-    required String day,
-    required String open,
-    required String close,
+    String? day,
+    String? open,
+    String? close,
   }) = _OpeningHourModel;
 
   factory OpeningHourModel.fromJson(Map<String, dynamic> json) =>
       _$OpeningHourModelFromJson(json);
 }
 
+
 @freezed
 class ActivitysModel with _$ActivitysModel {
   const factory ActivitysModel({
     required int id,
-    required String title,
-    required String distance,
-    required String time,
-    required String level,
-    required int participantNumber,
-    required String prerequisites,
-    required String street,
-    required int postalCode,
-    required String city,
-    required String eventType,
-    required String country,
-    required LocationModel location,
-    required String description,
-    required String price,
-    required List<OpeningHourModel> openingHours,
-    required String email,
-    required String phone,
+
+    String? title,
+    String? distance,
+    String? time,
+    String? level,
+
+    int? participantNumber,
+
+    String? prerequisites,
+    String? street,
+    int? postalCode,
+    String? city,
+
+    String? eventType,
+    String? country,
+
+    LocationModel? location,
+
+    String? description,
+    String? price,
+
+    List<OpeningHourModel>? openingHours,
+
+    String? email,
+    String? phone,
     String? website,
-    required List<ActivityImageModel> images,
-    required String createdAt,
-    required String updatedAt,
+
+    List<ActivityImageModel>? images,
+
+    String? createdAt,
+    String? updatedAt,
     String? deletedAt,
   }) = _ActivitysModel;
 
   factory ActivitysModel.fromJson(Map<String, dynamic> json) =>
       _$ActivitysModelFromJson(json);
 }
+

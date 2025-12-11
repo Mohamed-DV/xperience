@@ -40,9 +40,9 @@ class CompitionTodoCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
               child:
                   reservation.competition?.images != null &&
-                          reservation.competition!.images.isNotEmpty
+                          reservation.competition!.images!.isNotEmpty
                       ? Image.network(
-                        reservation.competition!.images.first.image,
+                        reservation.competition!.images!.first.image ??"",
                         width: imageWidth,
                         height: imageHeight,
                         fit: BoxFit.cover,
@@ -101,7 +101,7 @@ class CompitionTodoCard extends StatelessWidget {
                             ),
                             SizedBox(width: screenWidth * 0.012),
                             Text(
-                              formatShortDate(reservation.reservationDate),
+                              formatShortDate(reservation.reservationDate ??""),
                               style: GoogleFonts.openSans(
                                 fontSize: screenWidth * 0.03,
                                 fontWeight: FontWeight.w700,

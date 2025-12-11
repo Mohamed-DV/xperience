@@ -182,7 +182,7 @@ class _CompitionDetailsScreenState
                                             ref
                                                 .watch(homeRepositoryProvider)
                                                 .selectedEvent!
-                                                .eventType,
+                                                .eventType ?? "",
                                         id:
                                             ref
                                                 .watch(homeRepositoryProvider)

@@ -21,14 +21,20 @@ ReservationModel _$ReservationModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ReservationModel {
   int get id => throw _privateConstructorUsedError;
-  String get reservationDate => throw _privateConstructorUsedError;
-  String get status => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
+  String? get reservationDate => throw _privateConstructorUsedError;
+  String? get status => throw _privateConstructorUsedError;
+  int? get participantCount => throw _privateConstructorUsedError;
+  String? get fromDate => throw _privateConstructorUsedError;
+  String? get toDate => throw _privateConstructorUsedError;
   String? get fromHour => throw _privateConstructorUsedError;
   String? get toHour => throw _privateConstructorUsedError;
   String? get totalPrice => throw _privateConstructorUsedError;
-  CompitionsModel? get competition => throw _privateConstructorUsedError;
+  String? get notes => throw _privateConstructorUsedError;
+  String? get teamName => throw _privateConstructorUsedError;
+  String? get createdAt => throw _privateConstructorUsedError;
+  String? get updatedAt => throw _privateConstructorUsedError;
   ActivitysModel? get activity => throw _privateConstructorUsedError;
+  CompitionsModel? get competition => throw _privateConstructorUsedError;
   EventModel? get event => throw _privateConstructorUsedError;
   bool? get isCancelled => throw _privateConstructorUsedError;
   bool? get isUpdated => throw _privateConstructorUsedError;
@@ -51,20 +57,26 @@ abstract class $ReservationModelCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String reservationDate,
-      String status,
-      String? title,
+      String? reservationDate,
+      String? status,
+      int? participantCount,
+      String? fromDate,
+      String? toDate,
       String? fromHour,
       String? toHour,
       String? totalPrice,
-      CompitionsModel? competition,
+      String? notes,
+      String? teamName,
+      String? createdAt,
+      String? updatedAt,
       ActivitysModel? activity,
+      CompitionsModel? competition,
       EventModel? event,
       bool? isCancelled,
       bool? isUpdated});
 
-  $CompitionsModelCopyWith<$Res>? get competition;
   $ActivitysModelCopyWith<$Res>? get activity;
+  $CompitionsModelCopyWith<$Res>? get competition;
   $EventModelCopyWith<$Res>? get event;
 }
 
@@ -84,14 +96,20 @@ class _$ReservationModelCopyWithImpl<$Res, $Val extends ReservationModel>
   @override
   $Res call({
     Object? id = null,
-    Object? reservationDate = null,
-    Object? status = null,
-    Object? title = freezed,
+    Object? reservationDate = freezed,
+    Object? status = freezed,
+    Object? participantCount = freezed,
+    Object? fromDate = freezed,
+    Object? toDate = freezed,
     Object? fromHour = freezed,
     Object? toHour = freezed,
     Object? totalPrice = freezed,
-    Object? competition = freezed,
+    Object? notes = freezed,
+    Object? teamName = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
     Object? activity = freezed,
+    Object? competition = freezed,
     Object? event = freezed,
     Object? isCancelled = freezed,
     Object? isUpdated = freezed,
@@ -101,17 +119,25 @@ class _$ReservationModelCopyWithImpl<$Res, $Val extends ReservationModel>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      reservationDate: null == reservationDate
+      reservationDate: freezed == reservationDate
           ? _value.reservationDate
           : reservationDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      status: null == status
+              as String?,
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: freezed == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      participantCount: freezed == participantCount
+          ? _value.participantCount
+          : participantCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      fromDate: freezed == fromDate
+          ? _value.fromDate
+          : fromDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      toDate: freezed == toDate
+          ? _value.toDate
+          : toDate // ignore: cast_nullable_to_non_nullable
               as String?,
       fromHour: freezed == fromHour
           ? _value.fromHour
@@ -125,14 +151,30 @@ class _$ReservationModelCopyWithImpl<$Res, $Val extends ReservationModel>
           ? _value.totalPrice
           : totalPrice // ignore: cast_nullable_to_non_nullable
               as String?,
-      competition: freezed == competition
-          ? _value.competition
-          : competition // ignore: cast_nullable_to_non_nullable
-              as CompitionsModel?,
+      notes: freezed == notes
+          ? _value.notes
+          : notes // ignore: cast_nullable_to_non_nullable
+              as String?,
+      teamName: freezed == teamName
+          ? _value.teamName
+          : teamName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
       activity: freezed == activity
           ? _value.activity
           : activity // ignore: cast_nullable_to_non_nullable
               as ActivitysModel?,
+      competition: freezed == competition
+          ? _value.competition
+          : competition // ignore: cast_nullable_to_non_nullable
+              as CompitionsModel?,
       event: freezed == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
@@ -152,20 +194,6 @@ class _$ReservationModelCopyWithImpl<$Res, $Val extends ReservationModel>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $CompitionsModelCopyWith<$Res>? get competition {
-    if (_value.competition == null) {
-      return null;
-    }
-
-    return $CompitionsModelCopyWith<$Res>(_value.competition!, (value) {
-      return _then(_value.copyWith(competition: value) as $Val);
-    });
-  }
-
-  /// Create a copy of ReservationModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
   $ActivitysModelCopyWith<$Res>? get activity {
     if (_value.activity == null) {
       return null;
@@ -173,6 +201,20 @@ class _$ReservationModelCopyWithImpl<$Res, $Val extends ReservationModel>
 
     return $ActivitysModelCopyWith<$Res>(_value.activity!, (value) {
       return _then(_value.copyWith(activity: value) as $Val);
+    });
+  }
+
+  /// Create a copy of ReservationModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CompitionsModelCopyWith<$Res>? get competition {
+    if (_value.competition == null) {
+      return null;
+    }
+
+    return $CompitionsModelCopyWith<$Res>(_value.competition!, (value) {
+      return _then(_value.copyWith(competition: value) as $Val);
     });
   }
 
@@ -201,22 +243,28 @@ abstract class _$$ReservationModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {int id,
-      String reservationDate,
-      String status,
-      String? title,
+      String? reservationDate,
+      String? status,
+      int? participantCount,
+      String? fromDate,
+      String? toDate,
       String? fromHour,
       String? toHour,
       String? totalPrice,
-      CompitionsModel? competition,
+      String? notes,
+      String? teamName,
+      String? createdAt,
+      String? updatedAt,
       ActivitysModel? activity,
+      CompitionsModel? competition,
       EventModel? event,
       bool? isCancelled,
       bool? isUpdated});
 
   @override
-  $CompitionsModelCopyWith<$Res>? get competition;
-  @override
   $ActivitysModelCopyWith<$Res>? get activity;
+  @override
+  $CompitionsModelCopyWith<$Res>? get competition;
   @override
   $EventModelCopyWith<$Res>? get event;
 }
@@ -235,14 +283,20 @@ class __$$ReservationModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? reservationDate = null,
-    Object? status = null,
-    Object? title = freezed,
+    Object? reservationDate = freezed,
+    Object? status = freezed,
+    Object? participantCount = freezed,
+    Object? fromDate = freezed,
+    Object? toDate = freezed,
     Object? fromHour = freezed,
     Object? toHour = freezed,
     Object? totalPrice = freezed,
-    Object? competition = freezed,
+    Object? notes = freezed,
+    Object? teamName = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
     Object? activity = freezed,
+    Object? competition = freezed,
     Object? event = freezed,
     Object? isCancelled = freezed,
     Object? isUpdated = freezed,
@@ -252,17 +306,25 @@ class __$$ReservationModelImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      reservationDate: null == reservationDate
+      reservationDate: freezed == reservationDate
           ? _value.reservationDate
           : reservationDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      status: null == status
+              as String?,
+      status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: freezed == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      participantCount: freezed == participantCount
+          ? _value.participantCount
+          : participantCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      fromDate: freezed == fromDate
+          ? _value.fromDate
+          : fromDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      toDate: freezed == toDate
+          ? _value.toDate
+          : toDate // ignore: cast_nullable_to_non_nullable
               as String?,
       fromHour: freezed == fromHour
           ? _value.fromHour
@@ -276,14 +338,30 @@ class __$$ReservationModelImplCopyWithImpl<$Res>
           ? _value.totalPrice
           : totalPrice // ignore: cast_nullable_to_non_nullable
               as String?,
-      competition: freezed == competition
-          ? _value.competition
-          : competition // ignore: cast_nullable_to_non_nullable
-              as CompitionsModel?,
+      notes: freezed == notes
+          ? _value.notes
+          : notes // ignore: cast_nullable_to_non_nullable
+              as String?,
+      teamName: freezed == teamName
+          ? _value.teamName
+          : teamName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
       activity: freezed == activity
           ? _value.activity
           : activity // ignore: cast_nullable_to_non_nullable
               as ActivitysModel?,
+      competition: freezed == competition
+          ? _value.competition
+          : competition // ignore: cast_nullable_to_non_nullable
+              as CompitionsModel?,
       event: freezed == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
@@ -305,14 +383,20 @@ class __$$ReservationModelImplCopyWithImpl<$Res>
 class _$ReservationModelImpl implements _ReservationModel {
   const _$ReservationModelImpl(
       {required this.id,
-      required this.reservationDate,
-      required this.status,
-      this.title,
+      this.reservationDate,
+      this.status,
+      this.participantCount,
+      this.fromDate,
+      this.toDate,
       this.fromHour,
       this.toHour,
       this.totalPrice,
-      this.competition,
+      this.notes,
+      this.teamName,
+      this.createdAt,
+      this.updatedAt,
       this.activity,
+      this.competition,
       this.event,
       this.isCancelled,
       this.isUpdated});
@@ -323,11 +407,15 @@ class _$ReservationModelImpl implements _ReservationModel {
   @override
   final int id;
   @override
-  final String reservationDate;
+  final String? reservationDate;
   @override
-  final String status;
+  final String? status;
   @override
-  final String? title;
+  final int? participantCount;
+  @override
+  final String? fromDate;
+  @override
+  final String? toDate;
   @override
   final String? fromHour;
   @override
@@ -335,9 +423,17 @@ class _$ReservationModelImpl implements _ReservationModel {
   @override
   final String? totalPrice;
   @override
-  final CompitionsModel? competition;
+  final String? notes;
+  @override
+  final String? teamName;
+  @override
+  final String? createdAt;
+  @override
+  final String? updatedAt;
   @override
   final ActivitysModel? activity;
+  @override
+  final CompitionsModel? competition;
   @override
   final EventModel? event;
   @override
@@ -347,7 +443,7 @@ class _$ReservationModelImpl implements _ReservationModel {
 
   @override
   String toString() {
-    return 'ReservationModel(id: $id, reservationDate: $reservationDate, status: $status, title: $title, fromHour: $fromHour, toHour: $toHour, totalPrice: $totalPrice, competition: $competition, activity: $activity, event: $event, isCancelled: $isCancelled, isUpdated: $isUpdated)';
+    return 'ReservationModel(id: $id, reservationDate: $reservationDate, status: $status, participantCount: $participantCount, fromDate: $fromDate, toDate: $toDate, fromHour: $fromHour, toHour: $toHour, totalPrice: $totalPrice, notes: $notes, teamName: $teamName, createdAt: $createdAt, updatedAt: $updatedAt, activity: $activity, competition: $competition, event: $event, isCancelled: $isCancelled, isUpdated: $isUpdated)';
   }
 
   @override
@@ -359,16 +455,27 @@ class _$ReservationModelImpl implements _ReservationModel {
             (identical(other.reservationDate, reservationDate) ||
                 other.reservationDate == reservationDate) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.title, title) || other.title == title) &&
+            (identical(other.participantCount, participantCount) ||
+                other.participantCount == participantCount) &&
+            (identical(other.fromDate, fromDate) ||
+                other.fromDate == fromDate) &&
+            (identical(other.toDate, toDate) || other.toDate == toDate) &&
             (identical(other.fromHour, fromHour) ||
                 other.fromHour == fromHour) &&
             (identical(other.toHour, toHour) || other.toHour == toHour) &&
             (identical(other.totalPrice, totalPrice) ||
                 other.totalPrice == totalPrice) &&
-            (identical(other.competition, competition) ||
-                other.competition == competition) &&
+            (identical(other.notes, notes) || other.notes == notes) &&
+            (identical(other.teamName, teamName) ||
+                other.teamName == teamName) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
             (identical(other.activity, activity) ||
                 other.activity == activity) &&
+            (identical(other.competition, competition) ||
+                other.competition == competition) &&
             (identical(other.event, event) || other.event == event) &&
             (identical(other.isCancelled, isCancelled) ||
                 other.isCancelled == isCancelled) &&
@@ -383,12 +490,18 @@ class _$ReservationModelImpl implements _ReservationModel {
       id,
       reservationDate,
       status,
-      title,
+      participantCount,
+      fromDate,
+      toDate,
       fromHour,
       toHour,
       totalPrice,
-      competition,
+      notes,
+      teamName,
+      createdAt,
+      updatedAt,
       activity,
+      competition,
       event,
       isCancelled,
       isUpdated);
@@ -413,14 +526,20 @@ class _$ReservationModelImpl implements _ReservationModel {
 abstract class _ReservationModel implements ReservationModel {
   const factory _ReservationModel(
       {required final int id,
-      required final String reservationDate,
-      required final String status,
-      final String? title,
+      final String? reservationDate,
+      final String? status,
+      final int? participantCount,
+      final String? fromDate,
+      final String? toDate,
       final String? fromHour,
       final String? toHour,
       final String? totalPrice,
-      final CompitionsModel? competition,
+      final String? notes,
+      final String? teamName,
+      final String? createdAt,
+      final String? updatedAt,
       final ActivitysModel? activity,
+      final CompitionsModel? competition,
       final EventModel? event,
       final bool? isCancelled,
       final bool? isUpdated}) = _$ReservationModelImpl;
@@ -431,11 +550,15 @@ abstract class _ReservationModel implements ReservationModel {
   @override
   int get id;
   @override
-  String get reservationDate;
+  String? get reservationDate;
   @override
-  String get status;
+  String? get status;
   @override
-  String? get title;
+  int? get participantCount;
+  @override
+  String? get fromDate;
+  @override
+  String? get toDate;
   @override
   String? get fromHour;
   @override
@@ -443,9 +566,17 @@ abstract class _ReservationModel implements ReservationModel {
   @override
   String? get totalPrice;
   @override
-  CompitionsModel? get competition;
+  String? get notes;
+  @override
+  String? get teamName;
+  @override
+  String? get createdAt;
+  @override
+  String? get updatedAt;
   @override
   ActivitysModel? get activity;
+  @override
+  CompitionsModel? get competition;
   @override
   EventModel? get event;
   @override
@@ -469,9 +600,9 @@ CompetitionImageModel _$CompetitionImageModelFromJson(
 /// @nodoc
 mixin _$CompetitionImageModel {
   int get id => throw _privateConstructorUsedError;
-  String get image => throw _privateConstructorUsedError;
-  String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String? get image => throw _privateConstructorUsedError;
+  String? get createdAt => throw _privateConstructorUsedError;
+  String? get updatedAt => throw _privateConstructorUsedError;
   String? get deletedAt => throw _privateConstructorUsedError;
 
   /// Serializes this CompetitionImageModel to a JSON map.
@@ -492,9 +623,9 @@ abstract class $CompetitionImageModelCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String image,
-      String createdAt,
-      String updatedAt,
+      String? image,
+      String? createdAt,
+      String? updatedAt,
       String? deletedAt});
 }
 
@@ -515,9 +646,9 @@ class _$CompetitionImageModelCopyWithImpl<$Res,
   @override
   $Res call({
     Object? id = null,
-    Object? image = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? image = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
     Object? deletedAt = freezed,
   }) {
     return _then(_value.copyWith(
@@ -525,18 +656,18 @@ class _$CompetitionImageModelCopyWithImpl<$Res,
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      image: null == image
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       deletedAt: freezed == deletedAt
           ? _value.deletedAt
           : deletedAt // ignore: cast_nullable_to_non_nullable
@@ -556,9 +687,9 @@ abstract class _$$CompetitionImageModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {int id,
-      String image,
-      String createdAt,
-      String updatedAt,
+      String? image,
+      String? createdAt,
+      String? updatedAt,
       String? deletedAt});
 }
 
@@ -577,9 +708,9 @@ class __$$CompetitionImageModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? image = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? image = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
     Object? deletedAt = freezed,
   }) {
     return _then(_$CompetitionImageModelImpl(
@@ -587,18 +718,18 @@ class __$$CompetitionImageModelImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      image: null == image
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       deletedAt: freezed == deletedAt
           ? _value.deletedAt
           : deletedAt // ignore: cast_nullable_to_non_nullable
@@ -612,9 +743,9 @@ class __$$CompetitionImageModelImplCopyWithImpl<$Res>
 class _$CompetitionImageModelImpl implements _CompetitionImageModel {
   const _$CompetitionImageModelImpl(
       {required this.id,
-      required this.image,
-      required this.createdAt,
-      required this.updatedAt,
+      this.image,
+      this.createdAt,
+      this.updatedAt,
       this.deletedAt});
 
   factory _$CompetitionImageModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -623,11 +754,11 @@ class _$CompetitionImageModelImpl implements _CompetitionImageModel {
   @override
   final int id;
   @override
-  final String image;
+  final String? image;
   @override
-  final String createdAt;
+  final String? createdAt;
   @override
-  final String updatedAt;
+  final String? updatedAt;
   @override
   final String? deletedAt;
 
@@ -676,9 +807,9 @@ class _$CompetitionImageModelImpl implements _CompetitionImageModel {
 abstract class _CompetitionImageModel implements CompetitionImageModel {
   const factory _CompetitionImageModel(
       {required final int id,
-      required final String image,
-      required final String createdAt,
-      required final String updatedAt,
+      final String? image,
+      final String? createdAt,
+      final String? updatedAt,
       final String? deletedAt}) = _$CompetitionImageModelImpl;
 
   factory _CompetitionImageModel.fromJson(Map<String, dynamic> json) =
@@ -687,11 +818,11 @@ abstract class _CompetitionImageModel implements CompetitionImageModel {
   @override
   int get id;
   @override
-  String get image;
+  String? get image;
   @override
-  String get createdAt;
+  String? get createdAt;
   @override
-  String get updatedAt;
+  String? get updatedAt;
   @override
   String? get deletedAt;
 
@@ -709,8 +840,8 @@ LocationModel _$LocationModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LocationModel {
-  String get type => throw _privateConstructorUsedError;
-  List<double> get coordinates => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
+  List<double>? get coordinates => throw _privateConstructorUsedError;
 
   /// Serializes this LocationModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -728,7 +859,7 @@ abstract class $LocationModelCopyWith<$Res> {
           LocationModel value, $Res Function(LocationModel) then) =
       _$LocationModelCopyWithImpl<$Res, LocationModel>;
   @useResult
-  $Res call({String type, List<double> coordinates});
+  $Res call({String? type, List<double>? coordinates});
 }
 
 /// @nodoc
@@ -746,18 +877,18 @@ class _$LocationModelCopyWithImpl<$Res, $Val extends LocationModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? coordinates = null,
+    Object? type = freezed,
+    Object? coordinates = freezed,
   }) {
     return _then(_value.copyWith(
-      type: null == type
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      coordinates: null == coordinates
+              as String?,
+      coordinates: freezed == coordinates
           ? _value.coordinates
           : coordinates // ignore: cast_nullable_to_non_nullable
-              as List<double>,
+              as List<double>?,
     ) as $Val);
   }
 }
@@ -770,7 +901,7 @@ abstract class _$$LocationModelImplCopyWith<$Res>
       __$$LocationModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String type, List<double> coordinates});
+  $Res call({String? type, List<double>? coordinates});
 }
 
 /// @nodoc
@@ -786,18 +917,18 @@ class __$$LocationModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? coordinates = null,
+    Object? type = freezed,
+    Object? coordinates = freezed,
   }) {
     return _then(_$LocationModelImpl(
-      type: null == type
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      coordinates: null == coordinates
+              as String?,
+      coordinates: freezed == coordinates
           ? _value._coordinates
           : coordinates // ignore: cast_nullable_to_non_nullable
-              as List<double>,
+              as List<double>?,
     ));
   }
 }
@@ -805,21 +936,22 @@ class __$$LocationModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$LocationModelImpl implements _LocationModel {
-  const _$LocationModelImpl(
-      {required this.type, required final List<double> coordinates})
+  const _$LocationModelImpl({this.type, final List<double>? coordinates})
       : _coordinates = coordinates;
 
   factory _$LocationModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$LocationModelImplFromJson(json);
 
   @override
-  final String type;
-  final List<double> _coordinates;
+  final String? type;
+  final List<double>? _coordinates;
   @override
-  List<double> get coordinates {
+  List<double>? get coordinates {
+    final value = _coordinates;
+    if (value == null) return null;
     if (_coordinates is EqualUnmodifiableListView) return _coordinates;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_coordinates);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -860,16 +992,16 @@ class _$LocationModelImpl implements _LocationModel {
 
 abstract class _LocationModel implements LocationModel {
   const factory _LocationModel(
-      {required final String type,
-      required final List<double> coordinates}) = _$LocationModelImpl;
+      {final String? type,
+      final List<double>? coordinates}) = _$LocationModelImpl;
 
   factory _LocationModel.fromJson(Map<String, dynamic> json) =
       _$LocationModelImpl.fromJson;
 
   @override
-  String get type;
+  String? get type;
   @override
-  List<double> get coordinates;
+  List<double>? get coordinates;
 
   /// Create a copy of LocationModel
   /// with the given fields replaced by the non-null parameter values.
@@ -886,32 +1018,32 @@ CompitionsModel _$CompitionsModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CompitionsModel {
   int get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String get discipline => throw _privateConstructorUsedError;
-  String get date => throw _privateConstructorUsedError;
-  String get time => throw _privateConstructorUsedError;
-  String get level => throw _privateConstructorUsedError;
-  int get distance => throw _privateConstructorUsedError;
-  int get participantNumber => throw _privateConstructorUsedError;
-  String get prerequisites => throw _privateConstructorUsedError;
-  String get meetDate => throw _privateConstructorUsedError;
-  String get meetAddress => throw _privateConstructorUsedError;
-  int get meetPostalcode => throw _privateConstructorUsedError;
-  String get meetCity => throw _privateConstructorUsedError;
-  String get meetCountry => throw _privateConstructorUsedError;
-  String get startDate => throw _privateConstructorUsedError;
-  String get eventType => throw _privateConstructorUsedError;
-  String get startAddress => throw _privateConstructorUsedError;
-  LocationModel get meetLocation => throw _privateConstructorUsedError;
-  LocationModel get startLocation => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  String get price => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  String get phone => throw _privateConstructorUsedError;
-  String get website => throw _privateConstructorUsedError;
-  List<CompetitionImageModel> get images => throw _privateConstructorUsedError;
-  String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get discipline => throw _privateConstructorUsedError;
+  String? get date => throw _privateConstructorUsedError;
+  String? get time => throw _privateConstructorUsedError;
+  String? get level => throw _privateConstructorUsedError;
+  int? get distance => throw _privateConstructorUsedError;
+  int? get participantNumber => throw _privateConstructorUsedError;
+  String? get prerequisites => throw _privateConstructorUsedError;
+  String? get meetDate => throw _privateConstructorUsedError;
+  String? get meetAddress => throw _privateConstructorUsedError;
+  int? get meetPostalcode => throw _privateConstructorUsedError;
+  String? get meetCity => throw _privateConstructorUsedError;
+  String? get meetCountry => throw _privateConstructorUsedError;
+  String? get startDate => throw _privateConstructorUsedError;
+  String? get eventType => throw _privateConstructorUsedError;
+  String? get startAddress => throw _privateConstructorUsedError;
+  LocationModel? get meetLocation => throw _privateConstructorUsedError;
+  LocationModel? get startLocation => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  String? get price => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  String? get phone => throw _privateConstructorUsedError;
+  String? get website => throw _privateConstructorUsedError;
+  List<CompetitionImageModel>? get images => throw _privateConstructorUsedError;
+  String? get createdAt => throw _privateConstructorUsedError;
+  String? get updatedAt => throw _privateConstructorUsedError;
   String? get deletedAt => throw _privateConstructorUsedError;
 
   /// Serializes this CompitionsModel to a JSON map.
@@ -932,36 +1064,36 @@ abstract class $CompitionsModelCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String title,
-      String discipline,
-      String date,
-      String time,
-      String level,
-      int distance,
-      int participantNumber,
-      String prerequisites,
-      String meetDate,
-      String meetAddress,
-      int meetPostalcode,
-      String meetCity,
-      String meetCountry,
-      String startDate,
-      String eventType,
-      String startAddress,
-      LocationModel meetLocation,
-      LocationModel startLocation,
-      String description,
-      String price,
-      String email,
-      String phone,
-      String website,
-      List<CompetitionImageModel> images,
-      String createdAt,
-      String updatedAt,
+      String? title,
+      String? discipline,
+      String? date,
+      String? time,
+      String? level,
+      int? distance,
+      int? participantNumber,
+      String? prerequisites,
+      String? meetDate,
+      String? meetAddress,
+      int? meetPostalcode,
+      String? meetCity,
+      String? meetCountry,
+      String? startDate,
+      String? eventType,
+      String? startAddress,
+      LocationModel? meetLocation,
+      LocationModel? startLocation,
+      String? description,
+      String? price,
+      String? email,
+      String? phone,
+      String? website,
+      List<CompetitionImageModel>? images,
+      String? createdAt,
+      String? updatedAt,
       String? deletedAt});
 
-  $LocationModelCopyWith<$Res> get meetLocation;
-  $LocationModelCopyWith<$Res> get startLocation;
+  $LocationModelCopyWith<$Res>? get meetLocation;
+  $LocationModelCopyWith<$Res>? get startLocation;
 }
 
 /// @nodoc
@@ -980,32 +1112,32 @@ class _$CompitionsModelCopyWithImpl<$Res, $Val extends CompitionsModel>
   @override
   $Res call({
     Object? id = null,
-    Object? title = null,
-    Object? discipline = null,
-    Object? date = null,
-    Object? time = null,
-    Object? level = null,
-    Object? distance = null,
-    Object? participantNumber = null,
-    Object? prerequisites = null,
-    Object? meetDate = null,
-    Object? meetAddress = null,
-    Object? meetPostalcode = null,
-    Object? meetCity = null,
-    Object? meetCountry = null,
-    Object? startDate = null,
-    Object? eventType = null,
-    Object? startAddress = null,
-    Object? meetLocation = null,
-    Object? startLocation = null,
-    Object? description = null,
-    Object? price = null,
-    Object? email = null,
-    Object? phone = null,
-    Object? website = null,
-    Object? images = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? title = freezed,
+    Object? discipline = freezed,
+    Object? date = freezed,
+    Object? time = freezed,
+    Object? level = freezed,
+    Object? distance = freezed,
+    Object? participantNumber = freezed,
+    Object? prerequisites = freezed,
+    Object? meetDate = freezed,
+    Object? meetAddress = freezed,
+    Object? meetPostalcode = freezed,
+    Object? meetCity = freezed,
+    Object? meetCountry = freezed,
+    Object? startDate = freezed,
+    Object? eventType = freezed,
+    Object? startAddress = freezed,
+    Object? meetLocation = freezed,
+    Object? startLocation = freezed,
+    Object? description = freezed,
+    Object? price = freezed,
+    Object? email = freezed,
+    Object? phone = freezed,
+    Object? website = freezed,
+    Object? images = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
     Object? deletedAt = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1013,110 +1145,110 @@ class _$CompitionsModelCopyWithImpl<$Res, $Val extends CompitionsModel>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      title: null == title
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      discipline: null == discipline
+              as String?,
+      discipline: freezed == discipline
           ? _value.discipline
           : discipline // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
+              as String?,
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as String,
-      time: null == time
+              as String?,
+      time: freezed == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as String,
-      level: null == level
+              as String?,
+      level: freezed == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
-              as String,
-      distance: null == distance
+              as String?,
+      distance: freezed == distance
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
-              as int,
-      participantNumber: null == participantNumber
+              as int?,
+      participantNumber: freezed == participantNumber
           ? _value.participantNumber
           : participantNumber // ignore: cast_nullable_to_non_nullable
-              as int,
-      prerequisites: null == prerequisites
+              as int?,
+      prerequisites: freezed == prerequisites
           ? _value.prerequisites
           : prerequisites // ignore: cast_nullable_to_non_nullable
-              as String,
-      meetDate: null == meetDate
+              as String?,
+      meetDate: freezed == meetDate
           ? _value.meetDate
           : meetDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      meetAddress: null == meetAddress
+              as String?,
+      meetAddress: freezed == meetAddress
           ? _value.meetAddress
           : meetAddress // ignore: cast_nullable_to_non_nullable
-              as String,
-      meetPostalcode: null == meetPostalcode
+              as String?,
+      meetPostalcode: freezed == meetPostalcode
           ? _value.meetPostalcode
           : meetPostalcode // ignore: cast_nullable_to_non_nullable
-              as int,
-      meetCity: null == meetCity
+              as int?,
+      meetCity: freezed == meetCity
           ? _value.meetCity
           : meetCity // ignore: cast_nullable_to_non_nullable
-              as String,
-      meetCountry: null == meetCountry
+              as String?,
+      meetCountry: freezed == meetCountry
           ? _value.meetCountry
           : meetCountry // ignore: cast_nullable_to_non_nullable
-              as String,
-      startDate: null == startDate
+              as String?,
+      startDate: freezed == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      eventType: null == eventType
+              as String?,
+      eventType: freezed == eventType
           ? _value.eventType
           : eventType // ignore: cast_nullable_to_non_nullable
-              as String,
-      startAddress: null == startAddress
+              as String?,
+      startAddress: freezed == startAddress
           ? _value.startAddress
           : startAddress // ignore: cast_nullable_to_non_nullable
-              as String,
-      meetLocation: null == meetLocation
+              as String?,
+      meetLocation: freezed == meetLocation
           ? _value.meetLocation
           : meetLocation // ignore: cast_nullable_to_non_nullable
-              as LocationModel,
-      startLocation: null == startLocation
+              as LocationModel?,
+      startLocation: freezed == startLocation
           ? _value.startLocation
           : startLocation // ignore: cast_nullable_to_non_nullable
-              as LocationModel,
-      description: null == description
+              as LocationModel?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      price: null == price
+              as String?,
+      price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
+              as String?,
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: null == phone
+              as String?,
+      phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      website: null == website
+              as String?,
+      website: freezed == website
           ? _value.website
           : website // ignore: cast_nullable_to_non_nullable
-              as String,
-      images: null == images
+              as String?,
+      images: freezed == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
-              as List<CompetitionImageModel>,
-      createdAt: null == createdAt
+              as List<CompetitionImageModel>?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       deletedAt: freezed == deletedAt
           ? _value.deletedAt
           : deletedAt // ignore: cast_nullable_to_non_nullable
@@ -1128,8 +1260,12 @@ class _$CompitionsModelCopyWithImpl<$Res, $Val extends CompitionsModel>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LocationModelCopyWith<$Res> get meetLocation {
-    return $LocationModelCopyWith<$Res>(_value.meetLocation, (value) {
+  $LocationModelCopyWith<$Res>? get meetLocation {
+    if (_value.meetLocation == null) {
+      return null;
+    }
+
+    return $LocationModelCopyWith<$Res>(_value.meetLocation!, (value) {
       return _then(_value.copyWith(meetLocation: value) as $Val);
     });
   }
@@ -1138,8 +1274,12 @@ class _$CompitionsModelCopyWithImpl<$Res, $Val extends CompitionsModel>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LocationModelCopyWith<$Res> get startLocation {
-    return $LocationModelCopyWith<$Res>(_value.startLocation, (value) {
+  $LocationModelCopyWith<$Res>? get startLocation {
+    if (_value.startLocation == null) {
+      return null;
+    }
+
+    return $LocationModelCopyWith<$Res>(_value.startLocation!, (value) {
       return _then(_value.copyWith(startLocation: value) as $Val);
     });
   }
@@ -1155,38 +1295,38 @@ abstract class _$$CompitionsModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {int id,
-      String title,
-      String discipline,
-      String date,
-      String time,
-      String level,
-      int distance,
-      int participantNumber,
-      String prerequisites,
-      String meetDate,
-      String meetAddress,
-      int meetPostalcode,
-      String meetCity,
-      String meetCountry,
-      String startDate,
-      String eventType,
-      String startAddress,
-      LocationModel meetLocation,
-      LocationModel startLocation,
-      String description,
-      String price,
-      String email,
-      String phone,
-      String website,
-      List<CompetitionImageModel> images,
-      String createdAt,
-      String updatedAt,
+      String? title,
+      String? discipline,
+      String? date,
+      String? time,
+      String? level,
+      int? distance,
+      int? participantNumber,
+      String? prerequisites,
+      String? meetDate,
+      String? meetAddress,
+      int? meetPostalcode,
+      String? meetCity,
+      String? meetCountry,
+      String? startDate,
+      String? eventType,
+      String? startAddress,
+      LocationModel? meetLocation,
+      LocationModel? startLocation,
+      String? description,
+      String? price,
+      String? email,
+      String? phone,
+      String? website,
+      List<CompetitionImageModel>? images,
+      String? createdAt,
+      String? updatedAt,
       String? deletedAt});
 
   @override
-  $LocationModelCopyWith<$Res> get meetLocation;
+  $LocationModelCopyWith<$Res>? get meetLocation;
   @override
-  $LocationModelCopyWith<$Res> get startLocation;
+  $LocationModelCopyWith<$Res>? get startLocation;
 }
 
 /// @nodoc
@@ -1203,32 +1343,32 @@ class __$$CompitionsModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? title = null,
-    Object? discipline = null,
-    Object? date = null,
-    Object? time = null,
-    Object? level = null,
-    Object? distance = null,
-    Object? participantNumber = null,
-    Object? prerequisites = null,
-    Object? meetDate = null,
-    Object? meetAddress = null,
-    Object? meetPostalcode = null,
-    Object? meetCity = null,
-    Object? meetCountry = null,
-    Object? startDate = null,
-    Object? eventType = null,
-    Object? startAddress = null,
-    Object? meetLocation = null,
-    Object? startLocation = null,
-    Object? description = null,
-    Object? price = null,
-    Object? email = null,
-    Object? phone = null,
-    Object? website = null,
-    Object? images = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? title = freezed,
+    Object? discipline = freezed,
+    Object? date = freezed,
+    Object? time = freezed,
+    Object? level = freezed,
+    Object? distance = freezed,
+    Object? participantNumber = freezed,
+    Object? prerequisites = freezed,
+    Object? meetDate = freezed,
+    Object? meetAddress = freezed,
+    Object? meetPostalcode = freezed,
+    Object? meetCity = freezed,
+    Object? meetCountry = freezed,
+    Object? startDate = freezed,
+    Object? eventType = freezed,
+    Object? startAddress = freezed,
+    Object? meetLocation = freezed,
+    Object? startLocation = freezed,
+    Object? description = freezed,
+    Object? price = freezed,
+    Object? email = freezed,
+    Object? phone = freezed,
+    Object? website = freezed,
+    Object? images = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
     Object? deletedAt = freezed,
   }) {
     return _then(_$CompitionsModelImpl(
@@ -1236,110 +1376,110 @@ class __$$CompitionsModelImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      title: null == title
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      discipline: null == discipline
+              as String?,
+      discipline: freezed == discipline
           ? _value.discipline
           : discipline // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
+              as String?,
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as String,
-      time: null == time
+              as String?,
+      time: freezed == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as String,
-      level: null == level
+              as String?,
+      level: freezed == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
-              as String,
-      distance: null == distance
+              as String?,
+      distance: freezed == distance
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
-              as int,
-      participantNumber: null == participantNumber
+              as int?,
+      participantNumber: freezed == participantNumber
           ? _value.participantNumber
           : participantNumber // ignore: cast_nullable_to_non_nullable
-              as int,
-      prerequisites: null == prerequisites
+              as int?,
+      prerequisites: freezed == prerequisites
           ? _value.prerequisites
           : prerequisites // ignore: cast_nullable_to_non_nullable
-              as String,
-      meetDate: null == meetDate
+              as String?,
+      meetDate: freezed == meetDate
           ? _value.meetDate
           : meetDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      meetAddress: null == meetAddress
+              as String?,
+      meetAddress: freezed == meetAddress
           ? _value.meetAddress
           : meetAddress // ignore: cast_nullable_to_non_nullable
-              as String,
-      meetPostalcode: null == meetPostalcode
+              as String?,
+      meetPostalcode: freezed == meetPostalcode
           ? _value.meetPostalcode
           : meetPostalcode // ignore: cast_nullable_to_non_nullable
-              as int,
-      meetCity: null == meetCity
+              as int?,
+      meetCity: freezed == meetCity
           ? _value.meetCity
           : meetCity // ignore: cast_nullable_to_non_nullable
-              as String,
-      meetCountry: null == meetCountry
+              as String?,
+      meetCountry: freezed == meetCountry
           ? _value.meetCountry
           : meetCountry // ignore: cast_nullable_to_non_nullable
-              as String,
-      startDate: null == startDate
+              as String?,
+      startDate: freezed == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
-              as String,
-      eventType: null == eventType
+              as String?,
+      eventType: freezed == eventType
           ? _value.eventType
           : eventType // ignore: cast_nullable_to_non_nullable
-              as String,
-      startAddress: null == startAddress
+              as String?,
+      startAddress: freezed == startAddress
           ? _value.startAddress
           : startAddress // ignore: cast_nullable_to_non_nullable
-              as String,
-      meetLocation: null == meetLocation
+              as String?,
+      meetLocation: freezed == meetLocation
           ? _value.meetLocation
           : meetLocation // ignore: cast_nullable_to_non_nullable
-              as LocationModel,
-      startLocation: null == startLocation
+              as LocationModel?,
+      startLocation: freezed == startLocation
           ? _value.startLocation
           : startLocation // ignore: cast_nullable_to_non_nullable
-              as LocationModel,
-      description: null == description
+              as LocationModel?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      price: null == price
+              as String?,
+      price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
+              as String?,
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: null == phone
+              as String?,
+      phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      website: null == website
+              as String?,
+      website: freezed == website
           ? _value.website
           : website // ignore: cast_nullable_to_non_nullable
-              as String,
-      images: null == images
+              as String?,
+      images: freezed == images
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
-              as List<CompetitionImageModel>,
-      createdAt: null == createdAt
+              as List<CompetitionImageModel>?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       deletedAt: freezed == deletedAt
           ? _value.deletedAt
           : deletedAt // ignore: cast_nullable_to_non_nullable
@@ -1353,32 +1493,32 @@ class __$$CompitionsModelImplCopyWithImpl<$Res>
 class _$CompitionsModelImpl implements _CompitionsModel {
   const _$CompitionsModelImpl(
       {required this.id,
-      required this.title,
-      required this.discipline,
-      required this.date,
-      required this.time,
-      required this.level,
-      required this.distance,
-      required this.participantNumber,
-      required this.prerequisites,
-      required this.meetDate,
-      required this.meetAddress,
-      required this.meetPostalcode,
-      required this.meetCity,
-      required this.meetCountry,
-      required this.startDate,
-      required this.eventType,
-      required this.startAddress,
-      required this.meetLocation,
-      required this.startLocation,
-      required this.description,
-      required this.price,
-      required this.email,
-      required this.phone,
-      required this.website,
-      required final List<CompetitionImageModel> images,
-      required this.createdAt,
-      required this.updatedAt,
+      this.title,
+      this.discipline,
+      this.date,
+      this.time,
+      this.level,
+      this.distance,
+      this.participantNumber,
+      this.prerequisites,
+      this.meetDate,
+      this.meetAddress,
+      this.meetPostalcode,
+      this.meetCity,
+      this.meetCountry,
+      this.startDate,
+      this.eventType,
+      this.startAddress,
+      this.meetLocation,
+      this.startLocation,
+      this.description,
+      this.price,
+      this.email,
+      this.phone,
+      this.website,
+      final List<CompetitionImageModel>? images,
+      this.createdAt,
+      this.updatedAt,
       this.deletedAt})
       : _images = images;
 
@@ -1388,63 +1528,65 @@ class _$CompitionsModelImpl implements _CompitionsModel {
   @override
   final int id;
   @override
-  final String title;
+  final String? title;
   @override
-  final String discipline;
+  final String? discipline;
   @override
-  final String date;
+  final String? date;
   @override
-  final String time;
+  final String? time;
   @override
-  final String level;
+  final String? level;
   @override
-  final int distance;
+  final int? distance;
   @override
-  final int participantNumber;
+  final int? participantNumber;
   @override
-  final String prerequisites;
+  final String? prerequisites;
   @override
-  final String meetDate;
+  final String? meetDate;
   @override
-  final String meetAddress;
+  final String? meetAddress;
   @override
-  final int meetPostalcode;
+  final int? meetPostalcode;
   @override
-  final String meetCity;
+  final String? meetCity;
   @override
-  final String meetCountry;
+  final String? meetCountry;
   @override
-  final String startDate;
+  final String? startDate;
   @override
-  final String eventType;
+  final String? eventType;
   @override
-  final String startAddress;
+  final String? startAddress;
   @override
-  final LocationModel meetLocation;
+  final LocationModel? meetLocation;
   @override
-  final LocationModel startLocation;
+  final LocationModel? startLocation;
   @override
-  final String description;
+  final String? description;
   @override
-  final String price;
+  final String? price;
   @override
-  final String email;
+  final String? email;
   @override
-  final String phone;
+  final String? phone;
   @override
-  final String website;
-  final List<CompetitionImageModel> _images;
+  final String? website;
+  final List<CompetitionImageModel>? _images;
   @override
-  List<CompetitionImageModel> get images {
+  List<CompetitionImageModel>? get images {
+    final value = _images;
+    if (value == null) return null;
     if (_images is EqualUnmodifiableListView) return _images;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_images);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
-  final String createdAt;
+  final String? createdAt;
   @override
-  final String updatedAt;
+  final String? updatedAt;
   @override
   final String? deletedAt;
 
@@ -1560,32 +1702,32 @@ class _$CompitionsModelImpl implements _CompitionsModel {
 abstract class _CompitionsModel implements CompitionsModel {
   const factory _CompitionsModel(
       {required final int id,
-      required final String title,
-      required final String discipline,
-      required final String date,
-      required final String time,
-      required final String level,
-      required final int distance,
-      required final int participantNumber,
-      required final String prerequisites,
-      required final String meetDate,
-      required final String meetAddress,
-      required final int meetPostalcode,
-      required final String meetCity,
-      required final String meetCountry,
-      required final String startDate,
-      required final String eventType,
-      required final String startAddress,
-      required final LocationModel meetLocation,
-      required final LocationModel startLocation,
-      required final String description,
-      required final String price,
-      required final String email,
-      required final String phone,
-      required final String website,
-      required final List<CompetitionImageModel> images,
-      required final String createdAt,
-      required final String updatedAt,
+      final String? title,
+      final String? discipline,
+      final String? date,
+      final String? time,
+      final String? level,
+      final int? distance,
+      final int? participantNumber,
+      final String? prerequisites,
+      final String? meetDate,
+      final String? meetAddress,
+      final int? meetPostalcode,
+      final String? meetCity,
+      final String? meetCountry,
+      final String? startDate,
+      final String? eventType,
+      final String? startAddress,
+      final LocationModel? meetLocation,
+      final LocationModel? startLocation,
+      final String? description,
+      final String? price,
+      final String? email,
+      final String? phone,
+      final String? website,
+      final List<CompetitionImageModel>? images,
+      final String? createdAt,
+      final String? updatedAt,
       final String? deletedAt}) = _$CompitionsModelImpl;
 
   factory _CompitionsModel.fromJson(Map<String, dynamic> json) =
@@ -1594,57 +1736,57 @@ abstract class _CompitionsModel implements CompitionsModel {
   @override
   int get id;
   @override
-  String get title;
+  String? get title;
   @override
-  String get discipline;
+  String? get discipline;
   @override
-  String get date;
+  String? get date;
   @override
-  String get time;
+  String? get time;
   @override
-  String get level;
+  String? get level;
   @override
-  int get distance;
+  int? get distance;
   @override
-  int get participantNumber;
+  int? get participantNumber;
   @override
-  String get prerequisites;
+  String? get prerequisites;
   @override
-  String get meetDate;
+  String? get meetDate;
   @override
-  String get meetAddress;
+  String? get meetAddress;
   @override
-  int get meetPostalcode;
+  int? get meetPostalcode;
   @override
-  String get meetCity;
+  String? get meetCity;
   @override
-  String get meetCountry;
+  String? get meetCountry;
   @override
-  String get startDate;
+  String? get startDate;
   @override
-  String get eventType;
+  String? get eventType;
   @override
-  String get startAddress;
+  String? get startAddress;
   @override
-  LocationModel get meetLocation;
+  LocationModel? get meetLocation;
   @override
-  LocationModel get startLocation;
+  LocationModel? get startLocation;
   @override
-  String get description;
+  String? get description;
   @override
-  String get price;
+  String? get price;
   @override
-  String get email;
+  String? get email;
   @override
-  String get phone;
+  String? get phone;
   @override
-  String get website;
+  String? get website;
   @override
-  List<CompetitionImageModel> get images;
+  List<CompetitionImageModel>? get images;
   @override
-  String get createdAt;
+  String? get createdAt;
   @override
-  String get updatedAt;
+  String? get updatedAt;
   @override
   String? get deletedAt;
 
@@ -1663,9 +1805,9 @@ ActivityImageModel _$ActivityImageModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ActivityImageModel {
   int get id => throw _privateConstructorUsedError;
-  String get image => throw _privateConstructorUsedError;
-  String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  String? get image => throw _privateConstructorUsedError;
+  String? get createdAt => throw _privateConstructorUsedError;
+  String? get updatedAt => throw _privateConstructorUsedError;
   String? get deletedAt => throw _privateConstructorUsedError;
 
   /// Serializes this ActivityImageModel to a JSON map.
@@ -1686,9 +1828,9 @@ abstract class $ActivityImageModelCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String image,
-      String createdAt,
-      String updatedAt,
+      String? image,
+      String? createdAt,
+      String? updatedAt,
       String? deletedAt});
 }
 
@@ -1708,9 +1850,9 @@ class _$ActivityImageModelCopyWithImpl<$Res, $Val extends ActivityImageModel>
   @override
   $Res call({
     Object? id = null,
-    Object? image = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? image = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
     Object? deletedAt = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1718,18 +1860,18 @@ class _$ActivityImageModelCopyWithImpl<$Res, $Val extends ActivityImageModel>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      image: null == image
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       deletedAt: freezed == deletedAt
           ? _value.deletedAt
           : deletedAt // ignore: cast_nullable_to_non_nullable
@@ -1748,9 +1890,9 @@ abstract class _$$ActivityImageModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {int id,
-      String image,
-      String createdAt,
-      String updatedAt,
+      String? image,
+      String? createdAt,
+      String? updatedAt,
       String? deletedAt});
 }
 
@@ -1768,9 +1910,9 @@ class __$$ActivityImageModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? image = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? image = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
     Object? deletedAt = freezed,
   }) {
     return _then(_$ActivityImageModelImpl(
@@ -1778,18 +1920,18 @@ class __$$ActivityImageModelImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      image: null == image
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String,
-      createdAt: null == createdAt
+              as String?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       deletedAt: freezed == deletedAt
           ? _value.deletedAt
           : deletedAt // ignore: cast_nullable_to_non_nullable
@@ -1803,9 +1945,9 @@ class __$$ActivityImageModelImplCopyWithImpl<$Res>
 class _$ActivityImageModelImpl implements _ActivityImageModel {
   const _$ActivityImageModelImpl(
       {required this.id,
-      required this.image,
-      required this.createdAt,
-      required this.updatedAt,
+      this.image,
+      this.createdAt,
+      this.updatedAt,
       this.deletedAt});
 
   factory _$ActivityImageModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -1814,11 +1956,11 @@ class _$ActivityImageModelImpl implements _ActivityImageModel {
   @override
   final int id;
   @override
-  final String image;
+  final String? image;
   @override
-  final String createdAt;
+  final String? createdAt;
   @override
-  final String updatedAt;
+  final String? updatedAt;
   @override
   final String? deletedAt;
 
@@ -1867,9 +2009,9 @@ class _$ActivityImageModelImpl implements _ActivityImageModel {
 abstract class _ActivityImageModel implements ActivityImageModel {
   const factory _ActivityImageModel(
       {required final int id,
-      required final String image,
-      required final String createdAt,
-      required final String updatedAt,
+      final String? image,
+      final String? createdAt,
+      final String? updatedAt,
       final String? deletedAt}) = _$ActivityImageModelImpl;
 
   factory _ActivityImageModel.fromJson(Map<String, dynamic> json) =
@@ -1878,11 +2020,11 @@ abstract class _ActivityImageModel implements ActivityImageModel {
   @override
   int get id;
   @override
-  String get image;
+  String? get image;
   @override
-  String get createdAt;
+  String? get createdAt;
   @override
-  String get updatedAt;
+  String? get updatedAt;
   @override
   String? get deletedAt;
 
@@ -1900,9 +2042,9 @@ OpeningHourModel _$OpeningHourModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$OpeningHourModel {
-  String get day => throw _privateConstructorUsedError;
-  String get open => throw _privateConstructorUsedError;
-  String get close => throw _privateConstructorUsedError;
+  String? get day => throw _privateConstructorUsedError;
+  String? get open => throw _privateConstructorUsedError;
+  String? get close => throw _privateConstructorUsedError;
 
   /// Serializes this OpeningHourModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1920,7 +2062,7 @@ abstract class $OpeningHourModelCopyWith<$Res> {
           OpeningHourModel value, $Res Function(OpeningHourModel) then) =
       _$OpeningHourModelCopyWithImpl<$Res, OpeningHourModel>;
   @useResult
-  $Res call({String day, String open, String close});
+  $Res call({String? day, String? open, String? close});
 }
 
 /// @nodoc
@@ -1938,23 +2080,23 @@ class _$OpeningHourModelCopyWithImpl<$Res, $Val extends OpeningHourModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? day = null,
-    Object? open = null,
-    Object? close = null,
+    Object? day = freezed,
+    Object? open = freezed,
+    Object? close = freezed,
   }) {
     return _then(_value.copyWith(
-      day: null == day
+      day: freezed == day
           ? _value.day
           : day // ignore: cast_nullable_to_non_nullable
-              as String,
-      open: null == open
+              as String?,
+      open: freezed == open
           ? _value.open
           : open // ignore: cast_nullable_to_non_nullable
-              as String,
-      close: null == close
+              as String?,
+      close: freezed == close
           ? _value.close
           : close // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -1967,7 +2109,7 @@ abstract class _$$OpeningHourModelImplCopyWith<$Res>
       __$$OpeningHourModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String day, String open, String close});
+  $Res call({String? day, String? open, String? close});
 }
 
 /// @nodoc
@@ -1983,23 +2125,23 @@ class __$$OpeningHourModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? day = null,
-    Object? open = null,
-    Object? close = null,
+    Object? day = freezed,
+    Object? open = freezed,
+    Object? close = freezed,
   }) {
     return _then(_$OpeningHourModelImpl(
-      day: null == day
+      day: freezed == day
           ? _value.day
           : day // ignore: cast_nullable_to_non_nullable
-              as String,
-      open: null == open
+              as String?,
+      open: freezed == open
           ? _value.open
           : open // ignore: cast_nullable_to_non_nullable
-              as String,
-      close: null == close
+              as String?,
+      close: freezed == close
           ? _value.close
           : close // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -2007,18 +2149,17 @@ class __$$OpeningHourModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$OpeningHourModelImpl implements _OpeningHourModel {
-  const _$OpeningHourModelImpl(
-      {required this.day, required this.open, required this.close});
+  const _$OpeningHourModelImpl({this.day, this.open, this.close});
 
   factory _$OpeningHourModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$OpeningHourModelImplFromJson(json);
 
   @override
-  final String day;
+  final String? day;
   @override
-  final String open;
+  final String? open;
   @override
-  final String close;
+  final String? close;
 
   @override
   String toString() {
@@ -2058,19 +2199,19 @@ class _$OpeningHourModelImpl implements _OpeningHourModel {
 
 abstract class _OpeningHourModel implements OpeningHourModel {
   const factory _OpeningHourModel(
-      {required final String day,
-      required final String open,
-      required final String close}) = _$OpeningHourModelImpl;
+      {final String? day,
+      final String? open,
+      final String? close}) = _$OpeningHourModelImpl;
 
   factory _OpeningHourModel.fromJson(Map<String, dynamic> json) =
       _$OpeningHourModelImpl.fromJson;
 
   @override
-  String get day;
+  String? get day;
   @override
-  String get open;
+  String? get open;
   @override
-  String get close;
+  String? get close;
 
   /// Create a copy of OpeningHourModel
   /// with the given fields replaced by the non-null parameter values.
@@ -2087,27 +2228,28 @@ ActivitysModel _$ActivitysModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ActivitysModel {
   int get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String get distance => throw _privateConstructorUsedError;
-  String get time => throw _privateConstructorUsedError;
-  String get level => throw _privateConstructorUsedError;
-  int get participantNumber => throw _privateConstructorUsedError;
-  String get prerequisites => throw _privateConstructorUsedError;
-  String get street => throw _privateConstructorUsedError;
-  int get postalCode => throw _privateConstructorUsedError;
-  String get city => throw _privateConstructorUsedError;
-  String get eventType => throw _privateConstructorUsedError;
-  String get country => throw _privateConstructorUsedError;
-  LocationModel get location => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  String get price => throw _privateConstructorUsedError;
-  List<OpeningHourModel> get openingHours => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  String get phone => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get distance => throw _privateConstructorUsedError;
+  String? get time => throw _privateConstructorUsedError;
+  String? get level => throw _privateConstructorUsedError;
+  int? get participantNumber => throw _privateConstructorUsedError;
+  String? get prerequisites => throw _privateConstructorUsedError;
+  String? get street => throw _privateConstructorUsedError;
+  int? get postalCode => throw _privateConstructorUsedError;
+  String? get city => throw _privateConstructorUsedError;
+  String? get eventType => throw _privateConstructorUsedError;
+  String? get country => throw _privateConstructorUsedError;
+  LocationModel? get location => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  String? get price => throw _privateConstructorUsedError;
+  List<OpeningHourModel>? get openingHours =>
+      throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  String? get phone => throw _privateConstructorUsedError;
   String? get website => throw _privateConstructorUsedError;
-  List<ActivityImageModel> get images => throw _privateConstructorUsedError;
-  String get createdAt => throw _privateConstructorUsedError;
-  String get updatedAt => throw _privateConstructorUsedError;
+  List<ActivityImageModel>? get images => throw _privateConstructorUsedError;
+  String? get createdAt => throw _privateConstructorUsedError;
+  String? get updatedAt => throw _privateConstructorUsedError;
   String? get deletedAt => throw _privateConstructorUsedError;
 
   /// Serializes this ActivitysModel to a JSON map.
@@ -2128,30 +2270,30 @@ abstract class $ActivitysModelCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String title,
-      String distance,
-      String time,
-      String level,
-      int participantNumber,
-      String prerequisites,
-      String street,
-      int postalCode,
-      String city,
-      String eventType,
-      String country,
-      LocationModel location,
-      String description,
-      String price,
-      List<OpeningHourModel> openingHours,
-      String email,
-      String phone,
+      String? title,
+      String? distance,
+      String? time,
+      String? level,
+      int? participantNumber,
+      String? prerequisites,
+      String? street,
+      int? postalCode,
+      String? city,
+      String? eventType,
+      String? country,
+      LocationModel? location,
+      String? description,
+      String? price,
+      List<OpeningHourModel>? openingHours,
+      String? email,
+      String? phone,
       String? website,
-      List<ActivityImageModel> images,
-      String createdAt,
-      String updatedAt,
+      List<ActivityImageModel>? images,
+      String? createdAt,
+      String? updatedAt,
       String? deletedAt});
 
-  $LocationModelCopyWith<$Res> get location;
+  $LocationModelCopyWith<$Res>? get location;
 }
 
 /// @nodoc
@@ -2170,27 +2312,27 @@ class _$ActivitysModelCopyWithImpl<$Res, $Val extends ActivitysModel>
   @override
   $Res call({
     Object? id = null,
-    Object? title = null,
-    Object? distance = null,
-    Object? time = null,
-    Object? level = null,
-    Object? participantNumber = null,
-    Object? prerequisites = null,
-    Object? street = null,
-    Object? postalCode = null,
-    Object? city = null,
-    Object? eventType = null,
-    Object? country = null,
-    Object? location = null,
-    Object? description = null,
-    Object? price = null,
-    Object? openingHours = null,
-    Object? email = null,
-    Object? phone = null,
+    Object? title = freezed,
+    Object? distance = freezed,
+    Object? time = freezed,
+    Object? level = freezed,
+    Object? participantNumber = freezed,
+    Object? prerequisites = freezed,
+    Object? street = freezed,
+    Object? postalCode = freezed,
+    Object? city = freezed,
+    Object? eventType = freezed,
+    Object? country = freezed,
+    Object? location = freezed,
+    Object? description = freezed,
+    Object? price = freezed,
+    Object? openingHours = freezed,
+    Object? email = freezed,
+    Object? phone = freezed,
     Object? website = freezed,
-    Object? images = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? images = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
     Object? deletedAt = freezed,
   }) {
     return _then(_value.copyWith(
@@ -2198,90 +2340,90 @@ class _$ActivitysModelCopyWithImpl<$Res, $Val extends ActivitysModel>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      title: null == title
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      distance: null == distance
+              as String?,
+      distance: freezed == distance
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
-              as String,
-      time: null == time
+              as String?,
+      time: freezed == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as String,
-      level: null == level
+              as String?,
+      level: freezed == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
-              as String,
-      participantNumber: null == participantNumber
+              as String?,
+      participantNumber: freezed == participantNumber
           ? _value.participantNumber
           : participantNumber // ignore: cast_nullable_to_non_nullable
-              as int,
-      prerequisites: null == prerequisites
+              as int?,
+      prerequisites: freezed == prerequisites
           ? _value.prerequisites
           : prerequisites // ignore: cast_nullable_to_non_nullable
-              as String,
-      street: null == street
+              as String?,
+      street: freezed == street
           ? _value.street
           : street // ignore: cast_nullable_to_non_nullable
-              as String,
-      postalCode: null == postalCode
+              as String?,
+      postalCode: freezed == postalCode
           ? _value.postalCode
           : postalCode // ignore: cast_nullable_to_non_nullable
-              as int,
-      city: null == city
+              as int?,
+      city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as String,
-      eventType: null == eventType
+              as String?,
+      eventType: freezed == eventType
           ? _value.eventType
           : eventType // ignore: cast_nullable_to_non_nullable
-              as String,
-      country: null == country
+              as String?,
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String,
-      location: null == location
+              as String?,
+      location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as LocationModel,
-      description: null == description
+              as LocationModel?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      price: null == price
+              as String?,
+      price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as String,
-      openingHours: null == openingHours
+              as String?,
+      openingHours: freezed == openingHours
           ? _value.openingHours
           : openingHours // ignore: cast_nullable_to_non_nullable
-              as List<OpeningHourModel>,
-      email: null == email
+              as List<OpeningHourModel>?,
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: null == phone
+              as String?,
+      phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       website: freezed == website
           ? _value.website
           : website // ignore: cast_nullable_to_non_nullable
               as String?,
-      images: null == images
+      images: freezed == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
-              as List<ActivityImageModel>,
-      createdAt: null == createdAt
+              as List<ActivityImageModel>?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       deletedAt: freezed == deletedAt
           ? _value.deletedAt
           : deletedAt // ignore: cast_nullable_to_non_nullable
@@ -2293,8 +2435,12 @@ class _$ActivitysModelCopyWithImpl<$Res, $Val extends ActivitysModel>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $LocationModelCopyWith<$Res> get location {
-    return $LocationModelCopyWith<$Res>(_value.location, (value) {
+  $LocationModelCopyWith<$Res>? get location {
+    if (_value.location == null) {
+      return null;
+    }
+
+    return $LocationModelCopyWith<$Res>(_value.location!, (value) {
       return _then(_value.copyWith(location: value) as $Val);
     });
   }
@@ -2310,31 +2456,31 @@ abstract class _$$ActivitysModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {int id,
-      String title,
-      String distance,
-      String time,
-      String level,
-      int participantNumber,
-      String prerequisites,
-      String street,
-      int postalCode,
-      String city,
-      String eventType,
-      String country,
-      LocationModel location,
-      String description,
-      String price,
-      List<OpeningHourModel> openingHours,
-      String email,
-      String phone,
+      String? title,
+      String? distance,
+      String? time,
+      String? level,
+      int? participantNumber,
+      String? prerequisites,
+      String? street,
+      int? postalCode,
+      String? city,
+      String? eventType,
+      String? country,
+      LocationModel? location,
+      String? description,
+      String? price,
+      List<OpeningHourModel>? openingHours,
+      String? email,
+      String? phone,
       String? website,
-      List<ActivityImageModel> images,
-      String createdAt,
-      String updatedAt,
+      List<ActivityImageModel>? images,
+      String? createdAt,
+      String? updatedAt,
       String? deletedAt});
 
   @override
-  $LocationModelCopyWith<$Res> get location;
+  $LocationModelCopyWith<$Res>? get location;
 }
 
 /// @nodoc
@@ -2351,27 +2497,27 @@ class __$$ActivitysModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? title = null,
-    Object? distance = null,
-    Object? time = null,
-    Object? level = null,
-    Object? participantNumber = null,
-    Object? prerequisites = null,
-    Object? street = null,
-    Object? postalCode = null,
-    Object? city = null,
-    Object? eventType = null,
-    Object? country = null,
-    Object? location = null,
-    Object? description = null,
-    Object? price = null,
-    Object? openingHours = null,
-    Object? email = null,
-    Object? phone = null,
+    Object? title = freezed,
+    Object? distance = freezed,
+    Object? time = freezed,
+    Object? level = freezed,
+    Object? participantNumber = freezed,
+    Object? prerequisites = freezed,
+    Object? street = freezed,
+    Object? postalCode = freezed,
+    Object? city = freezed,
+    Object? eventType = freezed,
+    Object? country = freezed,
+    Object? location = freezed,
+    Object? description = freezed,
+    Object? price = freezed,
+    Object? openingHours = freezed,
+    Object? email = freezed,
+    Object? phone = freezed,
     Object? website = freezed,
-    Object? images = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? images = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
     Object? deletedAt = freezed,
   }) {
     return _then(_$ActivitysModelImpl(
@@ -2379,90 +2525,90 @@ class __$$ActivitysModelImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      title: null == title
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      distance: null == distance
+              as String?,
+      distance: freezed == distance
           ? _value.distance
           : distance // ignore: cast_nullable_to_non_nullable
-              as String,
-      time: null == time
+              as String?,
+      time: freezed == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as String,
-      level: null == level
+              as String?,
+      level: freezed == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
-              as String,
-      participantNumber: null == participantNumber
+              as String?,
+      participantNumber: freezed == participantNumber
           ? _value.participantNumber
           : participantNumber // ignore: cast_nullable_to_non_nullable
-              as int,
-      prerequisites: null == prerequisites
+              as int?,
+      prerequisites: freezed == prerequisites
           ? _value.prerequisites
           : prerequisites // ignore: cast_nullable_to_non_nullable
-              as String,
-      street: null == street
+              as String?,
+      street: freezed == street
           ? _value.street
           : street // ignore: cast_nullable_to_non_nullable
-              as String,
-      postalCode: null == postalCode
+              as String?,
+      postalCode: freezed == postalCode
           ? _value.postalCode
           : postalCode // ignore: cast_nullable_to_non_nullable
-              as int,
-      city: null == city
+              as int?,
+      city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as String,
-      eventType: null == eventType
+              as String?,
+      eventType: freezed == eventType
           ? _value.eventType
           : eventType // ignore: cast_nullable_to_non_nullable
-              as String,
-      country: null == country
+              as String?,
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String,
-      location: null == location
+              as String?,
+      location: freezed == location
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as LocationModel,
-      description: null == description
+              as LocationModel?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      price: null == price
+              as String?,
+      price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as String,
-      openingHours: null == openingHours
+              as String?,
+      openingHours: freezed == openingHours
           ? _value._openingHours
           : openingHours // ignore: cast_nullable_to_non_nullable
-              as List<OpeningHourModel>,
-      email: null == email
+              as List<OpeningHourModel>?,
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: null == phone
+              as String?,
+      phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       website: freezed == website
           ? _value.website
           : website // ignore: cast_nullable_to_non_nullable
               as String?,
-      images: null == images
+      images: freezed == images
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
-              as List<ActivityImageModel>,
-      createdAt: null == createdAt
+              as List<ActivityImageModel>?,
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
+              as String?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       deletedAt: freezed == deletedAt
           ? _value.deletedAt
           : deletedAt // ignore: cast_nullable_to_non_nullable
@@ -2476,27 +2622,27 @@ class __$$ActivitysModelImplCopyWithImpl<$Res>
 class _$ActivitysModelImpl implements _ActivitysModel {
   const _$ActivitysModelImpl(
       {required this.id,
-      required this.title,
-      required this.distance,
-      required this.time,
-      required this.level,
-      required this.participantNumber,
-      required this.prerequisites,
-      required this.street,
-      required this.postalCode,
-      required this.city,
-      required this.eventType,
-      required this.country,
-      required this.location,
-      required this.description,
-      required this.price,
-      required final List<OpeningHourModel> openingHours,
-      required this.email,
-      required this.phone,
+      this.title,
+      this.distance,
+      this.time,
+      this.level,
+      this.participantNumber,
+      this.prerequisites,
+      this.street,
+      this.postalCode,
+      this.city,
+      this.eventType,
+      this.country,
+      this.location,
+      this.description,
+      this.price,
+      final List<OpeningHourModel>? openingHours,
+      this.email,
+      this.phone,
       this.website,
-      required final List<ActivityImageModel> images,
-      required this.createdAt,
-      required this.updatedAt,
+      final List<ActivityImageModel>? images,
+      this.createdAt,
+      this.updatedAt,
       this.deletedAt})
       : _openingHours = openingHours,
         _images = images;
@@ -2507,59 +2653,63 @@ class _$ActivitysModelImpl implements _ActivitysModel {
   @override
   final int id;
   @override
-  final String title;
+  final String? title;
   @override
-  final String distance;
+  final String? distance;
   @override
-  final String time;
+  final String? time;
   @override
-  final String level;
+  final String? level;
   @override
-  final int participantNumber;
+  final int? participantNumber;
   @override
-  final String prerequisites;
+  final String? prerequisites;
   @override
-  final String street;
+  final String? street;
   @override
-  final int postalCode;
+  final int? postalCode;
   @override
-  final String city;
+  final String? city;
   @override
-  final String eventType;
+  final String? eventType;
   @override
-  final String country;
+  final String? country;
   @override
-  final LocationModel location;
+  final LocationModel? location;
   @override
-  final String description;
+  final String? description;
   @override
-  final String price;
-  final List<OpeningHourModel> _openingHours;
+  final String? price;
+  final List<OpeningHourModel>? _openingHours;
   @override
-  List<OpeningHourModel> get openingHours {
+  List<OpeningHourModel>? get openingHours {
+    final value = _openingHours;
+    if (value == null) return null;
     if (_openingHours is EqualUnmodifiableListView) return _openingHours;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_openingHours);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
-  final String email;
+  final String? email;
   @override
-  final String phone;
+  final String? phone;
   @override
   final String? website;
-  final List<ActivityImageModel> _images;
+  final List<ActivityImageModel>? _images;
   @override
-  List<ActivityImageModel> get images {
+  List<ActivityImageModel>? get images {
+    final value = _images;
+    if (value == null) return null;
     if (_images is EqualUnmodifiableListView) return _images;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_images);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
-  final String createdAt;
+  final String? createdAt;
   @override
-  final String updatedAt;
+  final String? updatedAt;
   @override
   final String? deletedAt;
 
@@ -2658,27 +2808,27 @@ class _$ActivitysModelImpl implements _ActivitysModel {
 abstract class _ActivitysModel implements ActivitysModel {
   const factory _ActivitysModel(
       {required final int id,
-      required final String title,
-      required final String distance,
-      required final String time,
-      required final String level,
-      required final int participantNumber,
-      required final String prerequisites,
-      required final String street,
-      required final int postalCode,
-      required final String city,
-      required final String eventType,
-      required final String country,
-      required final LocationModel location,
-      required final String description,
-      required final String price,
-      required final List<OpeningHourModel> openingHours,
-      required final String email,
-      required final String phone,
+      final String? title,
+      final String? distance,
+      final String? time,
+      final String? level,
+      final int? participantNumber,
+      final String? prerequisites,
+      final String? street,
+      final int? postalCode,
+      final String? city,
+      final String? eventType,
+      final String? country,
+      final LocationModel? location,
+      final String? description,
+      final String? price,
+      final List<OpeningHourModel>? openingHours,
+      final String? email,
+      final String? phone,
       final String? website,
-      required final List<ActivityImageModel> images,
-      required final String createdAt,
-      required final String updatedAt,
+      final List<ActivityImageModel>? images,
+      final String? createdAt,
+      final String? updatedAt,
       final String? deletedAt}) = _$ActivitysModelImpl;
 
   factory _ActivitysModel.fromJson(Map<String, dynamic> json) =
@@ -2687,47 +2837,47 @@ abstract class _ActivitysModel implements ActivitysModel {
   @override
   int get id;
   @override
-  String get title;
+  String? get title;
   @override
-  String get distance;
+  String? get distance;
   @override
-  String get time;
+  String? get time;
   @override
-  String get level;
+  String? get level;
   @override
-  int get participantNumber;
+  int? get participantNumber;
   @override
-  String get prerequisites;
+  String? get prerequisites;
   @override
-  String get street;
+  String? get street;
   @override
-  int get postalCode;
+  int? get postalCode;
   @override
-  String get city;
+  String? get city;
   @override
-  String get eventType;
+  String? get eventType;
   @override
-  String get country;
+  String? get country;
   @override
-  LocationModel get location;
+  LocationModel? get location;
   @override
-  String get description;
+  String? get description;
   @override
-  String get price;
+  String? get price;
   @override
-  List<OpeningHourModel> get openingHours;
+  List<OpeningHourModel>? get openingHours;
   @override
-  String get email;
+  String? get email;
   @override
-  String get phone;
+  String? get phone;
   @override
   String? get website;
   @override
-  List<ActivityImageModel> get images;
+  List<ActivityImageModel>? get images;
   @override
-  String get createdAt;
+  String? get createdAt;
   @override
-  String get updatedAt;
+  String? get updatedAt;
   @override
   String? get deletedAt;
 

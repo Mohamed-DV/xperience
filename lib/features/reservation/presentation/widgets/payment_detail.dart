@@ -85,9 +85,9 @@ class _PaymentDetailsState extends ConsumerState<PaymentDetails> {
             child: Image.network(
               ref.watch(reservationRepositoryProvider).selectedType ==
                       'activity'
-                  ? reservation.activity?.images.first.image ??
+                  ? reservation.activity!.images?.first.image ??
                       'https://via.placeholder.com/150'
-                  : reservation.competition?.images.first.image ??
+                  : reservation.competition?.images?.first.image ??
                       'https://via.placeholder.com/150',
               fit: BoxFit.cover,
             ),
@@ -182,7 +182,7 @@ class _PaymentDetailsState extends ConsumerState<PaymentDetails> {
                   ),
                 ),
                 Text(
-                  formatDayMonthYear(reservation.reservationDate),
+                  formatDayMonthYear(reservation.reservationDate ?? ""),
                   style: GoogleFonts.montserrat(
                     fontSize: 14,
                     color: AppColors.primaryGrey,
@@ -222,7 +222,7 @@ class _PaymentDetailsState extends ConsumerState<PaymentDetails> {
                   ),
                 ),
                 Text(
-                  formatTime(reservation.reservationDate),
+                  formatTime(reservation.reservationDate ?? ""),
                   style: GoogleFonts.montserrat(
                     fontSize: 14,
                     color: AppColors.primaryGrey,

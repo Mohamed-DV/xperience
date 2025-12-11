@@ -21,20 +21,20 @@ class DoagainCard extends ConsumerWidget {
     final imageHeight = imageWidth * 0.9; // Maintain aspect ratio
 String? getReservationImage(ReservationModel r, String type) {
   if (type == "activity") {
-    if (r.activity?.images != null && r.activity!.images.isNotEmpty) {
-      return r.activity!.images.first.image;
+    if (r.activity?.images != null && r.activity!.images!.isNotEmpty) {
+      return r.activity!.images!.first.image;
     }
   }
 
   if (type == "event") {
-    if (r.event?.images != null && r.event!.images.isNotEmpty) {
-      return r.event!.images.first.image;
+    if (r.event?.images != null && r.event!.images!.isNotEmpty) {
+      return r.event!.images!.first.image;
     }
   }
 
   if (type == "competition") {
-    if (r.competition?.images != null && r.competition!.images.isNotEmpty) {
-      return r.competition!.images.first.image;
+    if (r.competition?.images != null && r.competition!.images!.isNotEmpty) {
+      return r.competition!.images!.first.image;
     }
   }
 
@@ -159,7 +159,7 @@ ClipRRect(
                               ),
                               SizedBox(width: screenWidth * 0.012),
                               Text(
-                                formatShortDate(reservation.reservationDate),
+                                formatShortDate(reservation.reservationDate ??  ""),
                                 style: GoogleFonts.openSans(
                                   fontSize: screenWidth * 0.03,
                                   fontWeight: FontWeight.w700,

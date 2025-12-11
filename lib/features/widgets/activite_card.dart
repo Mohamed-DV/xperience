@@ -61,7 +61,7 @@ class ActiviteCard extends ConsumerWidget {
               topRight: Radius.circular(12),
             ),
             child: Image.network(
-               eventModel.images.first.image,
+               eventModel.images!.first.image ?? "",
               width: 242,
               height: 316,
               fit: BoxFit.cover, // EXACT Figma
@@ -108,7 +108,7 @@ SizedBox(height: 5,),
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  eventModel.title,
+                  eventModel.title ??"",
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: GoogleFonts.montserratAlternates(
@@ -120,7 +120,7 @@ SizedBox(height: 5,),
                 const SizedBox(height: 6),
                  Text(
                         activiteType == ActivieType.activity
-                            ? eventModel.country ?? '--'
+                            ? eventModel.meetCountry ?? '--'
                             : eventModel.eventType == 'competition'
                             ? 'Martinique'
                             : ' ',

@@ -21,19 +21,33 @@ EventModel _$EventModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$EventModel {
   int get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  List<ImageModel> get images => throw _privateConstructorUsedError;
-  String get eventType => throw _privateConstructorUsedError;
-  String? get meetDate => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get discipline => throw _privateConstructorUsedError;
+  String? get date => throw _privateConstructorUsedError;
   String? get time => throw _privateConstructorUsedError;
+  String? get level => throw _privateConstructorUsedError;
+  int? get distance => throw _privateConstructorUsedError;
+  int? get participantNumber => throw _privateConstructorUsedError;
+  String? get prerequisites => throw _privateConstructorUsedError;
+  String? get meetDate => throw _privateConstructorUsedError;
+  String? get meetAddress => throw _privateConstructorUsedError;
+  int? get meetPostalcode => throw _privateConstructorUsedError;
   String? get meetCity => throw _privateConstructorUsedError;
-  String? get country => throw _privateConstructorUsedError;
   String? get meetCountry => throw _privateConstructorUsedError;
+  String? get startDate => throw _privateConstructorUsedError;
+  String? get startAddress => throw _privateConstructorUsedError;
+  String? get eventType => throw _privateConstructorUsedError;
+  LocationModel? get meetLocation => throw _privateConstructorUsedError;
+  LocationModel? get startLocation => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get price => throw _privateConstructorUsedError;
-  String? get website => throw _privateConstructorUsedError;
-  String? get phone => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
+  String? get phone => throw _privateConstructorUsedError;
+  String? get website => throw _privateConstructorUsedError;
+  List<CompetitionImageModel>? get images => throw _privateConstructorUsedError;
+  String? get createdAt => throw _privateConstructorUsedError;
+  String? get updatedAt => throw _privateConstructorUsedError;
+  String? get deletedAt => throw _privateConstructorUsedError;
   int? get duration => throw _privateConstructorUsedError;
   bool? get isFav => throw _privateConstructorUsedError;
   bool? get isReserved => throw _privateConstructorUsedError;
@@ -56,22 +70,39 @@ abstract class $EventModelCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String title,
-      List<ImageModel> images,
-      String eventType,
-      String? meetDate,
+      String? title,
+      String? discipline,
+      String? date,
       String? time,
+      String? level,
+      int? distance,
+      int? participantNumber,
+      String? prerequisites,
+      String? meetDate,
+      String? meetAddress,
+      int? meetPostalcode,
       String? meetCity,
-      String? country,
       String? meetCountry,
+      String? startDate,
+      String? startAddress,
+      String? eventType,
+      LocationModel? meetLocation,
+      LocationModel? startLocation,
       String? description,
       String? price,
-      String? website,
-      String? phone,
       String? email,
+      String? phone,
+      String? website,
+      List<CompetitionImageModel>? images,
+      String? createdAt,
+      String? updatedAt,
+      String? deletedAt,
       int? duration,
       bool? isFav,
       bool? isReserved});
+
+  $LocationModelCopyWith<$Res>? get meetLocation;
+  $LocationModelCopyWith<$Res>? get startLocation;
 }
 
 /// @nodoc
@@ -90,19 +121,33 @@ class _$EventModelCopyWithImpl<$Res, $Val extends EventModel>
   @override
   $Res call({
     Object? id = null,
-    Object? title = null,
-    Object? images = null,
-    Object? eventType = null,
-    Object? meetDate = freezed,
+    Object? title = freezed,
+    Object? discipline = freezed,
+    Object? date = freezed,
     Object? time = freezed,
+    Object? level = freezed,
+    Object? distance = freezed,
+    Object? participantNumber = freezed,
+    Object? prerequisites = freezed,
+    Object? meetDate = freezed,
+    Object? meetAddress = freezed,
+    Object? meetPostalcode = freezed,
     Object? meetCity = freezed,
-    Object? country = freezed,
     Object? meetCountry = freezed,
+    Object? startDate = freezed,
+    Object? startAddress = freezed,
+    Object? eventType = freezed,
+    Object? meetLocation = freezed,
+    Object? startLocation = freezed,
     Object? description = freezed,
     Object? price = freezed,
-    Object? website = freezed,
-    Object? phone = freezed,
     Object? email = freezed,
+    Object? phone = freezed,
+    Object? website = freezed,
+    Object? images = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? deletedAt = freezed,
     Object? duration = freezed,
     Object? isFav = freezed,
     Object? isReserved = freezed,
@@ -112,38 +157,78 @@ class _$EventModelCopyWithImpl<$Res, $Val extends EventModel>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      title: null == title
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      images: null == images
-          ? _value.images
-          : images // ignore: cast_nullable_to_non_nullable
-              as List<ImageModel>,
-      eventType: null == eventType
-          ? _value.eventType
-          : eventType // ignore: cast_nullable_to_non_nullable
-              as String,
-      meetDate: freezed == meetDate
-          ? _value.meetDate
-          : meetDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      discipline: freezed == discipline
+          ? _value.discipline
+          : discipline // ignore: cast_nullable_to_non_nullable
+              as String?,
+      date: freezed == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
               as String?,
       time: freezed == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as String?,
+      level: freezed == level
+          ? _value.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as String?,
+      distance: freezed == distance
+          ? _value.distance
+          : distance // ignore: cast_nullable_to_non_nullable
+              as int?,
+      participantNumber: freezed == participantNumber
+          ? _value.participantNumber
+          : participantNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
+      prerequisites: freezed == prerequisites
+          ? _value.prerequisites
+          : prerequisites // ignore: cast_nullable_to_non_nullable
+              as String?,
+      meetDate: freezed == meetDate
+          ? _value.meetDate
+          : meetDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      meetAddress: freezed == meetAddress
+          ? _value.meetAddress
+          : meetAddress // ignore: cast_nullable_to_non_nullable
+              as String?,
+      meetPostalcode: freezed == meetPostalcode
+          ? _value.meetPostalcode
+          : meetPostalcode // ignore: cast_nullable_to_non_nullable
+              as int?,
       meetCity: freezed == meetCity
           ? _value.meetCity
           : meetCity // ignore: cast_nullable_to_non_nullable
-              as String?,
-      country: freezed == country
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
               as String?,
       meetCountry: freezed == meetCountry
           ? _value.meetCountry
           : meetCountry // ignore: cast_nullable_to_non_nullable
               as String?,
+      startDate: freezed == startDate
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      startAddress: freezed == startAddress
+          ? _value.startAddress
+          : startAddress // ignore: cast_nullable_to_non_nullable
+              as String?,
+      eventType: freezed == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as String?,
+      meetLocation: freezed == meetLocation
+          ? _value.meetLocation
+          : meetLocation // ignore: cast_nullable_to_non_nullable
+              as LocationModel?,
+      startLocation: freezed == startLocation
+          ? _value.startLocation
+          : startLocation // ignore: cast_nullable_to_non_nullable
+              as LocationModel?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -152,17 +237,33 @@ class _$EventModelCopyWithImpl<$Res, $Val extends EventModel>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as String?,
-      website: freezed == website
-          ? _value.website
-          : website // ignore: cast_nullable_to_non_nullable
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String?,
       phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String?,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      website: freezed == website
+          ? _value.website
+          : website // ignore: cast_nullable_to_non_nullable
+              as String?,
+      images: freezed == images
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<CompetitionImageModel>?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      deletedAt: freezed == deletedAt
+          ? _value.deletedAt
+          : deletedAt // ignore: cast_nullable_to_non_nullable
               as String?,
       duration: freezed == duration
           ? _value.duration
@@ -178,6 +279,34 @@ class _$EventModelCopyWithImpl<$Res, $Val extends EventModel>
               as bool?,
     ) as $Val);
   }
+
+  /// Create a copy of EventModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LocationModelCopyWith<$Res>? get meetLocation {
+    if (_value.meetLocation == null) {
+      return null;
+    }
+
+    return $LocationModelCopyWith<$Res>(_value.meetLocation!, (value) {
+      return _then(_value.copyWith(meetLocation: value) as $Val);
+    });
+  }
+
+  /// Create a copy of EventModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LocationModelCopyWith<$Res>? get startLocation {
+    if (_value.startLocation == null) {
+      return null;
+    }
+
+    return $LocationModelCopyWith<$Res>(_value.startLocation!, (value) {
+      return _then(_value.copyWith(startLocation: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -190,22 +319,41 @@ abstract class _$$EventModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {int id,
-      String title,
-      List<ImageModel> images,
-      String eventType,
-      String? meetDate,
+      String? title,
+      String? discipline,
+      String? date,
       String? time,
+      String? level,
+      int? distance,
+      int? participantNumber,
+      String? prerequisites,
+      String? meetDate,
+      String? meetAddress,
+      int? meetPostalcode,
       String? meetCity,
-      String? country,
       String? meetCountry,
+      String? startDate,
+      String? startAddress,
+      String? eventType,
+      LocationModel? meetLocation,
+      LocationModel? startLocation,
       String? description,
       String? price,
-      String? website,
-      String? phone,
       String? email,
+      String? phone,
+      String? website,
+      List<CompetitionImageModel>? images,
+      String? createdAt,
+      String? updatedAt,
+      String? deletedAt,
       int? duration,
       bool? isFav,
       bool? isReserved});
+
+  @override
+  $LocationModelCopyWith<$Res>? get meetLocation;
+  @override
+  $LocationModelCopyWith<$Res>? get startLocation;
 }
 
 /// @nodoc
@@ -222,19 +370,33 @@ class __$$EventModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? title = null,
-    Object? images = null,
-    Object? eventType = null,
-    Object? meetDate = freezed,
+    Object? title = freezed,
+    Object? discipline = freezed,
+    Object? date = freezed,
     Object? time = freezed,
+    Object? level = freezed,
+    Object? distance = freezed,
+    Object? participantNumber = freezed,
+    Object? prerequisites = freezed,
+    Object? meetDate = freezed,
+    Object? meetAddress = freezed,
+    Object? meetPostalcode = freezed,
     Object? meetCity = freezed,
-    Object? country = freezed,
     Object? meetCountry = freezed,
+    Object? startDate = freezed,
+    Object? startAddress = freezed,
+    Object? eventType = freezed,
+    Object? meetLocation = freezed,
+    Object? startLocation = freezed,
     Object? description = freezed,
     Object? price = freezed,
-    Object? website = freezed,
-    Object? phone = freezed,
     Object? email = freezed,
+    Object? phone = freezed,
+    Object? website = freezed,
+    Object? images = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? deletedAt = freezed,
     Object? duration = freezed,
     Object? isFav = freezed,
     Object? isReserved = freezed,
@@ -244,38 +406,78 @@ class __$$EventModelImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      title: null == title
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      images: null == images
-          ? _value._images
-          : images // ignore: cast_nullable_to_non_nullable
-              as List<ImageModel>,
-      eventType: null == eventType
-          ? _value.eventType
-          : eventType // ignore: cast_nullable_to_non_nullable
-              as String,
-      meetDate: freezed == meetDate
-          ? _value.meetDate
-          : meetDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      discipline: freezed == discipline
+          ? _value.discipline
+          : discipline // ignore: cast_nullable_to_non_nullable
+              as String?,
+      date: freezed == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
               as String?,
       time: freezed == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as String?,
+      level: freezed == level
+          ? _value.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as String?,
+      distance: freezed == distance
+          ? _value.distance
+          : distance // ignore: cast_nullable_to_non_nullable
+              as int?,
+      participantNumber: freezed == participantNumber
+          ? _value.participantNumber
+          : participantNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
+      prerequisites: freezed == prerequisites
+          ? _value.prerequisites
+          : prerequisites // ignore: cast_nullable_to_non_nullable
+              as String?,
+      meetDate: freezed == meetDate
+          ? _value.meetDate
+          : meetDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      meetAddress: freezed == meetAddress
+          ? _value.meetAddress
+          : meetAddress // ignore: cast_nullable_to_non_nullable
+              as String?,
+      meetPostalcode: freezed == meetPostalcode
+          ? _value.meetPostalcode
+          : meetPostalcode // ignore: cast_nullable_to_non_nullable
+              as int?,
       meetCity: freezed == meetCity
           ? _value.meetCity
           : meetCity // ignore: cast_nullable_to_non_nullable
-              as String?,
-      country: freezed == country
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
               as String?,
       meetCountry: freezed == meetCountry
           ? _value.meetCountry
           : meetCountry // ignore: cast_nullable_to_non_nullable
               as String?,
+      startDate: freezed == startDate
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      startAddress: freezed == startAddress
+          ? _value.startAddress
+          : startAddress // ignore: cast_nullable_to_non_nullable
+              as String?,
+      eventType: freezed == eventType
+          ? _value.eventType
+          : eventType // ignore: cast_nullable_to_non_nullable
+              as String?,
+      meetLocation: freezed == meetLocation
+          ? _value.meetLocation
+          : meetLocation // ignore: cast_nullable_to_non_nullable
+              as LocationModel?,
+      startLocation: freezed == startLocation
+          ? _value.startLocation
+          : startLocation // ignore: cast_nullable_to_non_nullable
+              as LocationModel?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -284,17 +486,33 @@ class __$$EventModelImplCopyWithImpl<$Res>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as String?,
-      website: freezed == website
-          ? _value.website
-          : website // ignore: cast_nullable_to_non_nullable
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String?,
       phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String?,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      website: freezed == website
+          ? _value.website
+          : website // ignore: cast_nullable_to_non_nullable
+              as String?,
+      images: freezed == images
+          ? _value._images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<CompetitionImageModel>?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      deletedAt: freezed == deletedAt
+          ? _value.deletedAt
+          : deletedAt // ignore: cast_nullable_to_non_nullable
               as String?,
       duration: freezed == duration
           ? _value.duration
@@ -317,19 +535,33 @@ class __$$EventModelImplCopyWithImpl<$Res>
 class _$EventModelImpl implements _EventModel {
   const _$EventModelImpl(
       {required this.id,
-      required this.title,
-      required final List<ImageModel> images,
-      required this.eventType,
-      this.meetDate,
+      this.title,
+      this.discipline,
+      this.date,
       this.time,
+      this.level,
+      this.distance,
+      this.participantNumber,
+      this.prerequisites,
+      this.meetDate,
+      this.meetAddress,
+      this.meetPostalcode,
       this.meetCity,
-      this.country,
       this.meetCountry,
+      this.startDate,
+      this.startAddress,
+      this.eventType,
+      this.meetLocation,
+      this.startLocation,
       this.description,
       this.price,
-      this.website,
-      this.phone,
       this.email,
+      this.phone,
+      this.website,
+      final List<CompetitionImageModel>? images,
+      this.createdAt,
+      this.updatedAt,
+      this.deletedAt,
       this.duration,
       this.isFav,
       this.isReserved})
@@ -341,37 +573,67 @@ class _$EventModelImpl implements _EventModel {
   @override
   final int id;
   @override
-  final String title;
-  final List<ImageModel> _images;
+  final String? title;
   @override
-  List<ImageModel> get images {
-    if (_images is EqualUnmodifiableListView) return _images;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_images);
-  }
-
+  final String? discipline;
   @override
-  final String eventType;
-  @override
-  final String? meetDate;
+  final String? date;
   @override
   final String? time;
   @override
+  final String? level;
+  @override
+  final int? distance;
+  @override
+  final int? participantNumber;
+  @override
+  final String? prerequisites;
+  @override
+  final String? meetDate;
+  @override
+  final String? meetAddress;
+  @override
+  final int? meetPostalcode;
+  @override
   final String? meetCity;
   @override
-  final String? country;
-  @override
   final String? meetCountry;
+  @override
+  final String? startDate;
+  @override
+  final String? startAddress;
+  @override
+  final String? eventType;
+  @override
+  final LocationModel? meetLocation;
+  @override
+  final LocationModel? startLocation;
   @override
   final String? description;
   @override
   final String? price;
   @override
-  final String? website;
+  final String? email;
   @override
   final String? phone;
   @override
-  final String? email;
+  final String? website;
+  final List<CompetitionImageModel>? _images;
+  @override
+  List<CompetitionImageModel>? get images {
+    final value = _images;
+    if (value == null) return null;
+    if (_images is EqualUnmodifiableListView) return _images;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final String? createdAt;
+  @override
+  final String? updatedAt;
+  @override
+  final String? deletedAt;
   @override
   final int? duration;
   @override
@@ -381,7 +643,7 @@ class _$EventModelImpl implements _EventModel {
 
   @override
   String toString() {
-    return 'EventModel(id: $id, title: $title, images: $images, eventType: $eventType, meetDate: $meetDate, time: $time, meetCity: $meetCity, country: $country, meetCountry: $meetCountry, description: $description, price: $price, website: $website, phone: $phone, email: $email, duration: $duration, isFav: $isFav, isReserved: $isReserved)';
+    return 'EventModel(id: $id, title: $title, discipline: $discipline, date: $date, time: $time, level: $level, distance: $distance, participantNumber: $participantNumber, prerequisites: $prerequisites, meetDate: $meetDate, meetAddress: $meetAddress, meetPostalcode: $meetPostalcode, meetCity: $meetCity, meetCountry: $meetCountry, startDate: $startDate, startAddress: $startAddress, eventType: $eventType, meetLocation: $meetLocation, startLocation: $startLocation, description: $description, price: $price, email: $email, phone: $phone, website: $website, images: $images, createdAt: $createdAt, updatedAt: $updatedAt, deletedAt: $deletedAt, duration: $duration, isFav: $isFav, isReserved: $isReserved)';
   }
 
   @override
@@ -391,23 +653,50 @@ class _$EventModelImpl implements _EventModel {
             other is _$EventModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
-            const DeepCollectionEquality().equals(other._images, _images) &&
-            (identical(other.eventType, eventType) ||
-                other.eventType == eventType) &&
+            (identical(other.discipline, discipline) ||
+                other.discipline == discipline) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.time, time) || other.time == time) &&
+            (identical(other.level, level) || other.level == level) &&
+            (identical(other.distance, distance) ||
+                other.distance == distance) &&
+            (identical(other.participantNumber, participantNumber) ||
+                other.participantNumber == participantNumber) &&
+            (identical(other.prerequisites, prerequisites) ||
+                other.prerequisites == prerequisites) &&
             (identical(other.meetDate, meetDate) ||
                 other.meetDate == meetDate) &&
-            (identical(other.time, time) || other.time == time) &&
+            (identical(other.meetAddress, meetAddress) ||
+                other.meetAddress == meetAddress) &&
+            (identical(other.meetPostalcode, meetPostalcode) ||
+                other.meetPostalcode == meetPostalcode) &&
             (identical(other.meetCity, meetCity) ||
                 other.meetCity == meetCity) &&
-            (identical(other.country, country) || other.country == country) &&
             (identical(other.meetCountry, meetCountry) ||
                 other.meetCountry == meetCountry) &&
+            (identical(other.startDate, startDate) ||
+                other.startDate == startDate) &&
+            (identical(other.startAddress, startAddress) ||
+                other.startAddress == startAddress) &&
+            (identical(other.eventType, eventType) ||
+                other.eventType == eventType) &&
+            (identical(other.meetLocation, meetLocation) ||
+                other.meetLocation == meetLocation) &&
+            (identical(other.startLocation, startLocation) ||
+                other.startLocation == startLocation) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.price, price) || other.price == price) &&
-            (identical(other.website, website) || other.website == website) &&
-            (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.email, email) || other.email == email) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.website, website) || other.website == website) &&
+            const DeepCollectionEquality().equals(other._images, _images) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
+            (identical(other.deletedAt, deletedAt) ||
+                other.deletedAt == deletedAt) &&
             (identical(other.duration, duration) ||
                 other.duration == duration) &&
             (identical(other.isFav, isFav) || other.isFav == isFav) &&
@@ -417,25 +706,40 @@ class _$EventModelImpl implements _EventModel {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      title,
-      const DeepCollectionEquality().hash(_images),
-      eventType,
-      meetDate,
-      time,
-      meetCity,
-      country,
-      meetCountry,
-      description,
-      price,
-      website,
-      phone,
-      email,
-      duration,
-      isFav,
-      isReserved);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        title,
+        discipline,
+        date,
+        time,
+        level,
+        distance,
+        participantNumber,
+        prerequisites,
+        meetDate,
+        meetAddress,
+        meetPostalcode,
+        meetCity,
+        meetCountry,
+        startDate,
+        startAddress,
+        eventType,
+        meetLocation,
+        startLocation,
+        description,
+        price,
+        email,
+        phone,
+        website,
+        const DeepCollectionEquality().hash(_images),
+        createdAt,
+        updatedAt,
+        deletedAt,
+        duration,
+        isFav,
+        isReserved
+      ]);
 
   /// Create a copy of EventModel
   /// with the given fields replaced by the non-null parameter values.
@@ -456,19 +760,33 @@ class _$EventModelImpl implements _EventModel {
 abstract class _EventModel implements EventModel {
   const factory _EventModel(
       {required final int id,
-      required final String title,
-      required final List<ImageModel> images,
-      required final String eventType,
-      final String? meetDate,
+      final String? title,
+      final String? discipline,
+      final String? date,
       final String? time,
+      final String? level,
+      final int? distance,
+      final int? participantNumber,
+      final String? prerequisites,
+      final String? meetDate,
+      final String? meetAddress,
+      final int? meetPostalcode,
       final String? meetCity,
-      final String? country,
       final String? meetCountry,
+      final String? startDate,
+      final String? startAddress,
+      final String? eventType,
+      final LocationModel? meetLocation,
+      final LocationModel? startLocation,
       final String? description,
       final String? price,
-      final String? website,
-      final String? phone,
       final String? email,
+      final String? phone,
+      final String? website,
+      final List<CompetitionImageModel>? images,
+      final String? createdAt,
+      final String? updatedAt,
+      final String? deletedAt,
       final int? duration,
       final bool? isFav,
       final bool? isReserved}) = _$EventModelImpl;
@@ -479,31 +797,59 @@ abstract class _EventModel implements EventModel {
   @override
   int get id;
   @override
-  String get title;
+  String? get title;
   @override
-  List<ImageModel> get images;
+  String? get discipline;
   @override
-  String get eventType;
-  @override
-  String? get meetDate;
+  String? get date;
   @override
   String? get time;
   @override
+  String? get level;
+  @override
+  int? get distance;
+  @override
+  int? get participantNumber;
+  @override
+  String? get prerequisites;
+  @override
+  String? get meetDate;
+  @override
+  String? get meetAddress;
+  @override
+  int? get meetPostalcode;
+  @override
   String? get meetCity;
   @override
-  String? get country;
-  @override
   String? get meetCountry;
+  @override
+  String? get startDate;
+  @override
+  String? get startAddress;
+  @override
+  String? get eventType;
+  @override
+  LocationModel? get meetLocation;
+  @override
+  LocationModel? get startLocation;
   @override
   String? get description;
   @override
   String? get price;
   @override
-  String? get website;
+  String? get email;
   @override
   String? get phone;
   @override
-  String? get email;
+  String? get website;
+  @override
+  List<CompetitionImageModel>? get images;
+  @override
+  String? get createdAt;
+  @override
+  String? get updatedAt;
+  @override
+  String? get deletedAt;
   @override
   int? get duration;
   @override

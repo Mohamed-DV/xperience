@@ -156,7 +156,7 @@ class MiniFavoriteCard extends StatelessWidget {
           ClipRRect(
             borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
             child: Image.network(
-              event.images.first.image,
+              event.images!.first.image ?? "",
               width: 160,
               height: 110,
               fit: BoxFit.cover,
@@ -170,7 +170,7 @@ class MiniFavoriteCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  event.title,
+                  event.title??"",
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: GoogleFonts.montserrat(
@@ -181,7 +181,7 @@ class MiniFavoriteCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  event.country != null ? event.country! : 'Lieu inconnu',
+                  event.meetCountry != null ? event.meetCountry! : 'Lieu inconnu',
                   style: GoogleFonts.openSans(
                     fontSize: 11,
                     color: Colors.grey,
@@ -265,7 +265,7 @@ class WishlistCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final previewImg = list.events.isNotEmpty
-        ? list.events.first.images.first.image
+        ? list.events.first.images!.first.image
         : list.image; // fallback asset
 
     return GestureDetector(
@@ -292,7 +292,7 @@ class WishlistCard extends ConsumerWidget {
             ClipRRect(
               borderRadius: BorderRadius.vertical(top: Radius.circular(14.r)),
               child: Image.network(
-                previewImg,
+                previewImg ??"",
                 height: 120.h,
                 width: double.infinity,
                 fit: BoxFit.cover,

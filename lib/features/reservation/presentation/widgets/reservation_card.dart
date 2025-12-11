@@ -78,9 +78,9 @@ class ReservationCard extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(12),
                     child:
                         reservation.activity?.images != null &&
-                                reservation.activity!.images.isNotEmpty
+                                reservation.activity!.images!.isNotEmpty
                             ? Image.network(
-                              reservation.activity!.images.first.image,
+                              reservation.activity!.images!.first.image ?? "",
                               width: imageWidth,
                               height: imageHeight,
                               fit: BoxFit.cover,
@@ -97,9 +97,9 @@ class ReservationCard extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(12),
                     child:
                         reservation.event?.images != null &&
-                                reservation.event!.images.isNotEmpty
+                                reservation.event!.images!.isNotEmpty
                             ? Image.network(
-                              reservation.event!.images.first.image,
+                              reservation.event!.images!.first.image ??"",
                               width: imageWidth,
                               height: imageHeight,
                               fit: BoxFit.cover,
@@ -115,9 +115,9 @@ class ReservationCard extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(12),
                     child:
                         reservation.competition?.images != null &&
-                                reservation.competition!.images.isNotEmpty
+                                reservation.competition!.images!.isNotEmpty 
                             ? Image.network(
-                              reservation.competition!.images.first.image,
+                              reservation.competition!.images!.first.image ??"",
                               width: imageWidth,
                               height: imageHeight,
                               fit: BoxFit.cover,
@@ -150,7 +150,7 @@ class ReservationCard extends ConsumerWidget {
                               ),
                               SizedBox(width: screenWidth * 0.012),
                               Text(
-                                "${formatShortDate(reservation.reservationDate)} à ${formatShortTimeReservation(reservation.fromHour ?? '00:00')}",
+                                "${formatShortDate(reservation.reservationDate ??"")} à ${formatShortTimeReservation(reservation.fromHour ?? '00:00')}",
                                 style: GoogleFonts.openSans(
                                   fontSize: screenWidth * 0.03,
                                   fontWeight: FontWeight.w500,

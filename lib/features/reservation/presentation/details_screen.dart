@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:remixicon/remixicon.dart';
 import 'package:spots_xplorer_app/config/theme/app_colors.dart';
 import 'package:spots_xplorer_app/core/models/activity_model.dart';
@@ -21,6 +22,11 @@ class DetailsScreen extends ConsumerStatefulWidget {
     this.eventModel, {
     super.key,
   });
+String getFrenchDate(String rawDate) {
+  final date = DateTime.parse(rawDate);
+  final formatter = DateFormat("EEEE d MMMM yyyy", "fr_FR");
+  return formatter.format(date);
+}
 
   @override
   ConsumerState<DetailsScreen> createState() => _DetailsScreenState();
@@ -496,7 +502,7 @@ class _DetailsScreenState extends ConsumerState<DetailsScreen> {
             Image.asset('assets/icons/calander.png', width: 20, height: 20),
             const SizedBox(width: 5),
             Text(
-              widget.compitionModel?.meetDate ?? '--',
+              getFrenchDate(widget.compitionModel!.meetDate!)?? '--',
               style: GoogleFonts.montserratAlternates(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
@@ -527,4 +533,11 @@ class _DetailsScreenState extends ConsumerState<DetailsScreen> {
       ],
     );
   }
+  
+String getFrenchDate(String rawDate) {
+  final date = DateTime.parse(rawDate);
+  final formatter = DateFormat("EEEE d MMMM yyyy", "fr_FR");
+  return formatter.format(date);
+}
+
 }

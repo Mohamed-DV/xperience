@@ -105,7 +105,7 @@ class _PaymentSelectorState extends ConsumerState<PaymentSelector> {
                   : ref
                           .watch(reservationRepositoryProvider)
                           .event
-                          ?.images
+                          ?.images!
                           .first
                           .image ??
                       'https://via.placeholder.com/150',
